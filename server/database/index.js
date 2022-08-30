@@ -1,1 +1,8 @@
-module.exports = require('./conn.js');
+const db = require('./conn.js');
+const User = require('./users.js');
+
+
+module.exports = {
+    db,
+    User
+}
