@@ -1,0 +1,73 @@
+.login {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  width: 300px;
+  margin: auto;
+  border-radius: 10px;
+  border: 3px solid #B3F5C4;
+  padding: 10px;
+}
+
+.login-signup-button button{
+  height: 30px;
+  width: 50%;
+  font-size: 15px;
+  background-color: #B3F5C4;
+  border-radius: 10px;
+  border: 1px solid;
+  cursor:pointer;
+}
+
+.login-signup-button a {
+  color: black;
+  text-decoration: none;
+}
+
+.login-form {
+  text-align: center;
+  font-size: 15px;
+  display: grid;
+  grid-template-rows: auto;
+  row-gap: 15px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 20;
+  display: inline-flex;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.login-fields {
+  height: 30px;
+  border-radius: 10px;
+  border: 2px;
+  margin: 10px;
+  background-color: #D9D9D9;
+}
+
+.keep-signedin {
+  text-align: left;
+  margin-left: 15px;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.keep-signedin input {
+  margin-left: 5px;
+}
+
+#submit-button {
+  height: 30px;
+  width: 50%;
+  border-radius: 10px;
+  border: 2px solid #B3F5C4;
+  margin: auto;
+  background-color: #B3F5C4;
+  cursor:pointer;
+}
+
