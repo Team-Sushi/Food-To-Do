@@ -21,6 +21,7 @@ export default function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="homepage" element={<Homepage />} />
 
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />
