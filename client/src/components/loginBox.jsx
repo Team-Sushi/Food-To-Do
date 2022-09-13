@@ -4,27 +4,27 @@ class LoginBox extends React.Component {
 
     render() {
         return (
-            <div className='login'>
+            <div className='login-signup-box'>
                 <div class="login-signup-button">
                     <button>
                         <a href="/signup">Sign Up</a>
                         <span> | </span>
-                        <a href="/login">Login</a>
+                        <a href="/login" style={{fontWeight: "bold", textDecoration: "underline"}}>Login</a>
                     </button>
                 </div>
-                <form action="login" method="POST" className="login-form">
-                    <span>
+                <form action="login" method="POST" className="form">
+                    <span className="form-fields">
                         <label for="email">
-                            <i class="material-symbols-outlined">mail</i>Emails
+                            <i className="material-symbols-outlined">mail</i>Email
                         </label>
-                        <input className="login-fields" type="email" name="email" />
+                        <input type="email" name="email" />
                     </span>
 
-                    <span>
+                    <span className="form-fields">
                         <label for="password">
-                            <i class="material-symbols-outlined">lock</i>Password
+                            <i className="material-symbols-outlined">lock</i>Password
                         </label>
-                        <input className="login-fields" type="password" name="password" />
+                        <input type="password" name="password" />
                     </span>
 
                     <span className="keep-signedin">
