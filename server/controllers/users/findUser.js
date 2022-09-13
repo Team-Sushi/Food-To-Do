@@ -1,1 +1,0 @@
-/* Find a user in the database based on the ID or other params */
