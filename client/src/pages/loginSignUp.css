@@ -1,8 +1,9 @@
-.login {
+.login-signup-box {
   font-family: 'Inter', sans-serif;
   text-align: center;
-  width: 300px;
+  width: 320px;
   margin: auto;
+  margin-top: 10%;
   border-radius: 10px;
   border: 3px solid #B3F5C4;
   padding: 10px;
@@ -12,23 +13,44 @@
   height: 30px;
   width: 50%;
   font-size: 15px;
+  margin: 15px;
   background-color: #B3F5C4;
   border-radius: 10px;
   border: 1px solid;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .login-signup-button a {
   color: black;
   text-decoration: none;
+  margin: 8px;
 }
 
-.login-form {
-  text-align: center;
+.form {
+  text-align: left;
   font-size: 15px;
   display: grid;
   grid-template-rows: auto;
   row-gap: 15px;
+  margin-top: 10px;
+}
+
+.form span {
+  margin-bottom: 10px;
+}
+
+.form label {
+  margin: 10px;
+}
+
+.form-fields input { 
+  margin-right: 10px;
+  float: right;
+  width: 50%;
+  height: 30px;
+  border-radius: 10px;
+  border: 2px;
+  background-color: #D9D9D9;
 }
 
 .material-symbols-outlined {
@@ -42,13 +64,6 @@
   margin-right: 5px;
 }
 
-.login-fields {
-  height: 30px;
-  border-radius: 10px;
-  border: 2px;
-  margin: 10px;
-  background-color: #D9D9D9;
-}
 
 .keep-signedin {
   text-align: left;
@@ -63,7 +78,7 @@
 
 #submit-button {
   height: 30px;
-  width: 50%;
+  width: 30%;
   border-radius: 10px;
   border: 2px solid #B3F5C4;
   margin: auto;
