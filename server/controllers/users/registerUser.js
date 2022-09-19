@@ -1,7 +1,9 @@
 /* Register a new user, with the encrypted password from the front end
     1. Find if there's an existing user
     2. If yes, deny the registration "Account has existed"
-    3. If no, add the user details into database */
+    3. If no, add the user details into database
+    These steps should be done automatically by User.create call since the email field
+    in the userSchema is set to unique. */
 
 const { User } = require('../../models/users.js');
 const bcrypt = require('bcrypt');
@@ -27,7 +29,9 @@ const registerUser = async (req, res) => {
         });
     }
     catch (err) {
-        res.send(err);
+        if (err.code === 11000) { // Duplicate user
+            res.send("User has already existed.");
+        }
     }
 }
 

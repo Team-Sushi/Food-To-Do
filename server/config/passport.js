@@ -2,18 +2,19 @@
 
 const passport = require('passport');
 const bcrypt = require('bcrypt');
-const passport_local = require('passport-local');
+const LocalStrategy = require('passport-local').Strategy;
 const { findUserByEmail } = require('../controllers/users/findUserByEmail.js');
 const { User } = require('../models/users.js')
 
 // Configuring local strategy for the application
-const LocalStrategy = passport.use(new passport_local.Strategy(
+passport.use('user-login', new LocalStrategy(
+	{
+		usernameField: 'email',
+		passwordField: 'password'
+	},
     (email, password, done) => {
-        findUserByEmail(email, (err, user) => {
-			if (err) {
-				return done(err);
-			}
-
+        User.findOne({ email: email })
+		.then((user) => {
 			// User not found
 			if (!user) {
 				return done(null, false);
@@ -29,28 +30,25 @@ const LocalStrategy = passport.use(new passport_local.Strategy(
 				}
 				return done(null, user);
 			});
-        });
+        })
+		.catch((err) => {
+			done(err)
+		});
     }
 ));
 
 // Session-based functions
-const serializeUser = 
-	passport.serializeUser(function(user, cb) {
-		cb(null, user.id);
-	});
+passport.serializeUser(function(user, cb) {
+	cb(null, user.id);
+});
 
-const deserializeUser = 
-	passport.deserializeUser(function(id, cb) {
-		User.findById(id, function (err, user) {
-			if (err) {
-				return cb(err); 
-			}
-			cb(null, user);
-		});
+passport.deserializeUser(function(id, cb) {
+	User.findById(id, function (err, user) {
+		if (err) {
+			return cb(err); 
+		}
+		cb(null, user);
 	});
+});
 
-module.exports = {
-	LocalStrategy,
-	serializeUser,
-	deserializeUser
-}
+module.exports = passport;

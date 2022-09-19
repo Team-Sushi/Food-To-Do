@@ -14,7 +14,7 @@ const userSchema = new Schema ({
     email: {
         type: String,
         required: [true, 'Please enter your email address.'],
-        unique: 'Another account has been registered with this email, please try different email.'
+        unique: 'Another account has been registered with this email, please try again with different email.'
     },
     password: {
         type: String,

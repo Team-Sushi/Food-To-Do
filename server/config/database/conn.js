@@ -2,37 +2,43 @@ require('dotenv').config()
 const mongoose = require('mongoose');
 
 // Connect to different databases based on the environment
-if (process.env.NODE_ENV == 'development') {
-    mongoose.connect(process.env.MONGO_DEV_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
-} else if (process.env.NODE_ENV == 'testing') {
-    mongoose.connect(process.env.MONGO_TEST_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        dbName: 'foodtodo'
-    });
-} else if (process.env.NODE_ENV == 'production') {
-    mongoose.connect(process.env.MONGO_PROD_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        dbName: 'foodtodo'
-    });
+const getDBURL = () => {
+    if (process.env.NODE_ENV == 'development') {
+        return process.env.MONGO_DEV_URI;
+    } else if (process.env.NODE_ENV == 'testing') {
+        return process.env.MONGO_TEST_URI;
+    } else if (process.env.NODE_ENV == 'production') {
+        return process.env.MONGO_PROD_URI;
+    }
+    else {
+        console.log(`Environment is undefined or incorrect.`);
+        return null;
+    }
+}
+const dbURI = getDBURL();
+const dbOptions = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: 'foodtodo'
 }
 
-// Testing if the connection to the database is successful
-const db = mongoose.connection;
+mongoose.connect(dbURI, dbOptions)
 
-db.once('open', async() => {
-    console.log(`Database connected on: ${db.host} port ${db.port}`);
+// Testing if the connection to the database is successful
+const connection = mongoose.connection;
+
+connection.once('open', () => {
+    console.log(`Database connected on: ${connection.host} port ${connection.port}`);
 })
-db.on('error', err => {
+connection.on('error', err => {
     console.log(`Connection failed: ${err}`);
     process.exit(1);
 })
 
-module.exports = {db};
+module.exports = {
+    connection,
+    dbURI
+};
 
 
 
