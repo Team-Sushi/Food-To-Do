@@ -10,7 +10,7 @@ class Homepage extends React.Component {
         window.location.replace(url);
     };
 
-    render(){
+    render() {
         return (
             <div className="main-div">
                 
@@ -26,21 +26,21 @@ class Homepage extends React.Component {
                 </div>
                 
                 <div className='getstartedbtn'>
-                    <button 
-                        type="button" 
-                        onClick={() => this.goToLogin()} 
+                    <button
+                        type="button"
+                        onClick={() => this.goToLogin()}
                         className="button"
-                        >
-                            <span>
-                                Get Started Now
-                            </span>
+                    >
+                        <span>
+                            Get Started Now
+                        </span>
                     </button>
                 </div>
                 
 
                 <div className='motto'>
                     <p>
-                        Grocery planning tailored for you, with convenience as our motto, 
+                        Grocery planning tailored for you, with convenience as our motto,
                         FoodToDo will make your grocery trips faster and executed with ease.
                     </p>
                 </div>
