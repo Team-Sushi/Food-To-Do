@@ -1,15 +1,15 @@
 # COMP30022-Project
-COMP30022 IT Project
-Project Title: 
+
+## Project Title:
 FoodToDo
 
-Project Description: 
+## Project Description: 
 Web-based app Grocery Item Register, to keep track of your groceries and remind you at your next shop.
 
-Project Aim:
+## Project Aim:
 Assisting shoppers by tracking their grocery list, giving convenience to their grocery shopping experience
 
-Dependencies:
+## Dependencies:
 
 Node.js
 
@@ -17,7 +17,7 @@ Create React App
 
 React-Router-Dom
 
-How to Install and Run the Project?
+## How to Install and Run the Project?
 
 npm install
 
