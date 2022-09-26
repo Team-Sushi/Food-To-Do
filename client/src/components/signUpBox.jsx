@@ -7,7 +7,7 @@ class SignUpBox extends React.Component {
             <div className='login-signup-box'>
                 <div class="login-signup-button">
                     <button>
-                        <a href="/signup" style={{fontWeight: "bold", textDecoration: "underline"}}>Sign Up</a>
+                        <a href="/signup" style={{ fontWeight: "bold", textDecoration: "underline" }}>Sign Up</a>
                         <span> | </span>
                         <a href="/login">Login</a>
                     </button>
@@ -41,12 +41,13 @@ class SignUpBox extends React.Component {
                         <input type="password" name="password" />
                     </span>
 
-                    
+
                     <input id="submit-button" type="submit" value="Register" />
                 </form>
             </div>
         );
     }
+
 }
 
 export default SignUpBox;
