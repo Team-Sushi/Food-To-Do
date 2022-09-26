@@ -4,6 +4,9 @@
   "description": "node server for foodtodo",
   "main": "server.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-mongo": "^4.6.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.1",
@@ -13,12 +16,16 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.9.0",
     "mongoose": "^6.5.2",
+    "mongoose-beautiful-unique-validation": "^7.1.1",
     "nodemon": "^2.0.19",
-    "passport": "^0.6.0"
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "validator": "^13.7.0"
   },
   "scripts": {
     "start-dev": "set NODE_ENV=development&& node server.js",
     "start-test": "set NODE_ENV=testing&& node server.js",
-    "start-prod": "set NODE_ENV=production&& node server.js"
+    "start-prod": "set NODE_ENV=production&& node server.js",
+    "nodemon-dev": "npx nodemon --exec npm run start-dev"
   }
 }
