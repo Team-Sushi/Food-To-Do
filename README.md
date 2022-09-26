@@ -19,7 +19,8 @@ React-Router-Dom
 
 Express
 
-## How to Install and Run the Project?
+## How to Install, Run and Deploy the Project?
+`type the text here in your terminal/cmd` (make sure you're in the food-to-do folder :))
 
 #### Run the project locally in development: 
 1. `npm install`
