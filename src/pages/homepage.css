@@ -1,0 +1,182 @@
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+
+/* header styling */
+
+.header-left{
+    position: absolute;
+    left: 3%;
+    top: 0;
+}
+.header-left h2{
+    font-size: 70px;
+    font-weight: 600;
+}
+
+/* Main styling */
+
+/* Sidebar styling */
+.sideBar {
+    height: 100%;
+    width: 30%;
+}
+
+/* Background texts */
+
+.transparent-text{
+    position: absolute;
+    left: -10px;
+    bottom: 600px;
+}
+
+.transparent-text-heading{
+    font-size: 525px;
+    color: rgba(105, 173, 140, 0.4);
+}
+
+.tt-span-one{
+    position: absolute;
+    top: 10px;
+    left: -150;
+    z-index: -1;
+}
+
+.transparent-text-heading-2{
+    font-size: 525px;
+    color: rgba(192, 91, 84, 0.4);
+}
+
+.tt-span-three{
+    position: absolute;
+    top: 450px;
+    left: -150;
+    z-index: -1;
+}
+
+.transparent-text-heading-3{
+    font-size: 525px;
+    color: rgba(234, 185, 74, 0.4);
+}
+
+.tt-span-four{
+    position: absolute;
+    top: 450px;
+    left: 700px;
+    z-index: -1;
+}
+
+/* Motto phrase styling */
+
+.motto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.motto p{
+    position: absolute;
+    width: 300px !important;
+    font-style: italic;
+    color: rgba(34, 34, 34, 0.7);
+    left: 3.25%;
+    top: 17%;
+    z-index: 1;
+}
+
+
+/* Background image styling */
+
+.background {
+    background-color: white;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    z-index: 0;
+}
+
+
+/* Logo styling */
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.logo {
+    position: absolute;
+    top: 40%;
+    left: 8.5%;
+    width: 20%;
+    height: 20%;
+}
+
+
+/* Button styling */
+
+.getstartedbtn {
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    z-index: 1;
+}
+
+.button {
+    border-radius: 8px;
+    background-color: #f9e3bc;
+    border: black;
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    padding: 20px;
+    width: 300px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+/* Made by Team Sushi styling */
+.credits {
+    font-size: 10px;
+    z-index: 1;
+    color: black;
+    position: absolute;
+    bottom: 10px;
+    left: 110px;
+}

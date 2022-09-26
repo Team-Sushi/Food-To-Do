@@ -7,6 +7,7 @@ import './index.css';
 
 import Layout from './pages/layout.jsx';
 import Homepage from './pages/homepage.jsx'
+//import LandingPage from './pages/LandingPage';
 import Login from './pages/login.jsx';
 import Signup from "./pages/signup.jsx";
 import Dashboard from "./pages/dashboard.jsx";
