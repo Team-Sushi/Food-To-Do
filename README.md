@@ -36,7 +36,7 @@ Express
 1. `npm start`
 2. open up http://localhost:9000
 
-#### Set up your Heroku CLI (command line interface) to prepare for deployment:
+#### Set up your Heroku CLI (command line interface) to prepare for deployment (Only needs to be done once):
 1. Sign up for a Heroku account with your uni email (that has been added as a collaborator to the FoodToDo Heroku app)
 2. on a mac terminal: `brew tap heroku/brew && brew install heroku` (for windows and linux, refer to the instructions here: https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 3. `heroku log in`
