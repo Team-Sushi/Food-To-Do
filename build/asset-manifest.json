@@ -1,17 +1,17 @@
 {
-  "files": {
-    "main.css": "/static/css/main.36ab33a0.css",
-    "main.js": "/static/js/main.733f4a4e.js",
-    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
-    "static/media/background1.jpg": "/static/media/background1.657d945a3014b8b0b497.jpg",
-    "static/media/foodToDoLogo.png": "/static/media/foodToDoLogo.a128a95441815d8b1b60.png",
-    "index.html": "/index.html",
-    "main.36ab33a0.css.map": "/static/css/main.36ab33a0.css.map",
-    "main.733f4a4e.js.map": "/static/js/main.733f4a4e.js.map",
-    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.36ab33a0.css",
-    "static/js/main.733f4a4e.js"
-  ]
+  "main.css": "/static/css/main.ccb556a9.chunk.css",
+  "main.js": "/static/js/main.9856e719.chunk.js",
+  "main.js.map": "/static/js/main.9856e719.chunk.js.map",
+  "static/js/1.836e4380.chunk.js": "/static/js/1.836e4380.chunk.js",
+  "static/js/1.836e4380.chunk.js.map": "/static/js/1.836e4380.chunk.js.map",
+  "static/js/2.bc650b2a.chunk.js": "/static/js/2.bc650b2a.chunk.js",
+  "static/js/2.bc650b2a.chunk.js.map": "/static/js/2.bc650b2a.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.d2051469.js",
+  "runtime~main.js.map": "/static/js/runtime~main.d2051469.js.map",
+  "static/media/foodToDoLogo.png": "/static/media/foodToDoLogo.8fcf6ee1.png",
+  "static/media/index.css": "/static/media/background1.1284d968.jpg",
+  "static/css/main.ccb556a9.chunk.css.map": "/static/css/main.ccb556a9.chunk.css.map",
+  "index.html": "/index.html",
+  "precache-manifest.0c518f2086d032f64d99e7ceeabf85fd.js": "/precache-manifest.0c518f2086d032f64d99e7ceeabf85fd.js",
+  "service-worker.js": "/service-worker.js"
 }
