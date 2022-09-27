@@ -39,7 +39,7 @@ Express
 #### Set up your Heroku CLI (command line interface) to prepare for deployment (Only needs to be done once):
 1. Sign up for a Heroku account with your uni email (that has been added as a collaborator to the FoodToDo Heroku app)
 2. on a mac terminal: `brew tap heroku/brew && brew install heroku` (for windows and linux, refer to the instructions here: https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
-3. `heroku log in`
+3. `heroku login`
 4. `heroku git:remote -a foodtodo`
 
 #### Deploy the main branch to Heroku (make sure you are on the main branch and have built for production whether in the main branch or before it was merged into the main branch):
