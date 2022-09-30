@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "9856e719218f3d4cf6fe",
-    "url": "/static/css/main.ccb556a9.chunk.css"
+    "revision": "8368ff1d6c7bf660ca94",
+    "url": "/static/css/main.27e01706.chunk.css"
   },
   {
-    "revision": "9856e719218f3d4cf6fe",
-    "url": "/static/js/main.9856e719.chunk.js"
+    "revision": "8368ff1d6c7bf660ca94",
+    "url": "/static/js/main.8368ff1d.chunk.js"
   },
   {
     "revision": "836e4380fe3f7816a983",
@@ -24,11 +24,7 @@ self.__precacheManifest = [
     "url": "/static/media/foodToDoLogo.8fcf6ee1.png"
   },
   {
-    "revision": "1284d968ef395b9fd6188f917e346979",
-    "url": "/static/media/background1.1284d968.jpg"
-  },
-  {
-    "revision": "594b78c3399a6ab608aecf6df8e2d065",
+    "revision": "ba2f2e542f66d540ebfa6a9fa158f4ee",
     "url": "/index.html"
   }
 ];

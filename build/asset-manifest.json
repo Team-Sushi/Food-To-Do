@@ -1,7 +1,7 @@
 {
-  "main.css": "/static/css/main.ccb556a9.chunk.css",
-  "main.js": "/static/js/main.9856e719.chunk.js",
-  "main.js.map": "/static/js/main.9856e719.chunk.js.map",
+  "main.css": "/static/css/main.27e01706.chunk.css",
+  "main.js": "/static/js/main.8368ff1d.chunk.js",
+  "main.js.map": "/static/js/main.8368ff1d.chunk.js.map",
   "static/js/1.836e4380.chunk.js": "/static/js/1.836e4380.chunk.js",
   "static/js/1.836e4380.chunk.js.map": "/static/js/1.836e4380.chunk.js.map",
   "static/js/2.bc650b2a.chunk.js": "/static/js/2.bc650b2a.chunk.js",
@@ -9,9 +9,8 @@
   "runtime~main.js": "/static/js/runtime~main.d2051469.js",
   "runtime~main.js.map": "/static/js/runtime~main.d2051469.js.map",
   "static/media/foodToDoLogo.png": "/static/media/foodToDoLogo.8fcf6ee1.png",
-  "static/media/index.css": "/static/media/background1.1284d968.jpg",
-  "static/css/main.ccb556a9.chunk.css.map": "/static/css/main.ccb556a9.chunk.css.map",
+  "static/css/main.27e01706.chunk.css.map": "/static/css/main.27e01706.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.0c518f2086d032f64d99e7ceeabf85fd.js": "/precache-manifest.0c518f2086d032f64d99e7ceeabf85fd.js",
+  "precache-manifest.2a118534703753c3f8dff05dfa38a101.js": "/precache-manifest.2a118534703753c3f8dff05dfa38a101.js",
   "service-worker.js": "/service-worker.js"
 }
