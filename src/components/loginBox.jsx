@@ -2,6 +2,14 @@ import React from "react";
 
 class LoginBox extends React.Component {
 
+    componentDidMount() {
+        document.body.style.backgroundImage = "url('background1.jpg')";
+    }
+
+    componentWillUnmount() {
+        document.body.style.backgroundImage = 'none';
+    }
+
     render() {
         return (
             <div className='login-signup-box'>
@@ -9,7 +17,7 @@ class LoginBox extends React.Component {
                     <button>
                         <a href="/signup">Sign Up</a>
                         <span> | </span>
-                        <a href="/login" style={{fontWeight: "bold", textDecoration: "underline"}}>Login</a>
+                        <a href="/login" style={{ fontWeight: "bold", textDecoration: "underline" }}>Login</a>
                     </button>
                 </div>
                 <form action="login" method="POST" className="form">
