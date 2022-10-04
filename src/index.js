@@ -11,6 +11,7 @@ import Homepage from './pages/homepage.jsx'
 import Login from './pages/login.jsx';
 import Signup from "./pages/signup.jsx";
 import Dashboard from "./pages/dashboard.jsx";
+import NextShop from './pages/nextShop';
 
 export default function App() {
   return (
@@ -22,7 +23,8 @@ export default function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="homepage" element={<Homepage />} />
+          {/* <Route path="homepage" element={<Homepage />} /> */}
+          <Route path="homepage" element={<NextShop />} />
 
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />
