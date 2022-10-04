@@ -6,11 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 import Layout from './pages/layout.jsx';
-import Homepage from './pages/homepage.jsx'
-//import LandingPage from './pages/LandingPage';
+import LandingPage from './pages/LandingPage';
 import Login from './pages/login.jsx';
 import Signup from "./pages/signup.jsx";
-import Dashboard from "./pages/dashboard.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 import NextShop from './pages/nextShop';
 
 export default function App() {
@@ -19,7 +18,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
 
-          <Route index element={<Homepage />} />
+          <Route index element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
           <Route path="dashboard" element={<Dashboard />} />
