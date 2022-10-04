@@ -4,13 +4,14 @@ import logo from "./Logo.png";
 import menu from "./menu.png";
 import search from "./search.png";
 import skipback from "./skip-back.png";
+import Navbar from '../components/navbar';
 
 const NextShop = () => {
   return (
     // <div>
     //   <Navbar />
       <div className="next-shopping-list-desktop">
-        <div className="header-div">
+        {/* <div className="header-div">
           <div className="icon-buttons-div">
             <a href="https://foodtodo.herokuapp.com/">
               <img className="master-logo-icon" alt="" src={logo} />
@@ -20,8 +21,8 @@ const NextShop = () => {
               <img className="menu-icon" alt="" src={menu} />
             </div>
           </div>
-        </div>
-        {/* <Navbar /> */}
+        </div> */}
+        <Navbar />
         <div className="next-shopping-list-title-group">
           <img className="skip-back-icon" alt="" src={skipback} />
           <div className="next-shopping-list">Next Shopping List</div>

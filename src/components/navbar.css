@@ -1,6 +1,7 @@
-/* navigation bar */
+/* whole navigation bar */
 .ham-nav {
     overflow: hidden;
+    align-self: stretch;
     background-color: white;
     position: relative;
   }
@@ -8,6 +9,7 @@
 /* logo */
 .nav-bar-logo {
     width: 40px;
+    /* width: 2vw; */
 }
 
 /* hamburger icon */
@@ -17,6 +19,7 @@
     right: 0;
     top: 0;
     cursor: pointer;
+    /* width: 2vw; */
 }
 
 .ham-icon .material-symbols-outlined {

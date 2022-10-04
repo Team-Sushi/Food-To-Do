@@ -33,5 +33,4 @@ class Navbar extends React.Component {
         );
     }
 }
-// eslint-disable-next-line
 export default Navbar;
