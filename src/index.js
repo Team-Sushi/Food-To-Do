@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 import Layout from './pages/layout.jsx';
-import LandingPage from './pages/LandingPage';
+import LandingPage from './pages/LandingPage.jsx';
 import Login from './pages/login.jsx';
 import Signup from "./pages/signup.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
@@ -19,6 +19,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
 
           <Route index element={<LandingPage />} />
+          <Route path="landingpage" element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
           <Route path="dashboard" element={<Dashboard />} />

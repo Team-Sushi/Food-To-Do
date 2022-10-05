@@ -1,15 +1,19 @@
 import React from 'react'
 import DashboardHeader from '../components/DashboardHeader';
 import Navbar from '../components/navbar';
-import '../components/navbar.css'
-import '../pages/Dashboard.css'
+import '../components/navbar.css';
+import '../pages/Dashboard.css';
+import UserProfileBtn from '../components/UserProfileBtn';
 
 function Dashboard() {
 
     return (
-        <div className='dashboard-page-background'>
+        <div>
             <Navbar />
-            <DashboardHeader />
+            <div className='dashboard-page-background'>
+                <UserProfileBtn />
+                <DashboardHeader />
+            </div>
         </div>
 
     )
