@@ -5,8 +5,6 @@ import Meat from '../components/meat.jpg'
 import Dairy from '../components/dairy.jpg'
 import Pantry from '../components/pantry.jpg'
 import Alcohol from '../components/alcohol.jpg'
-import DashboardItemWheel from './DashboardItemWheel'
-
 
 const DashboardHeader = () => {
   return (
@@ -49,12 +47,6 @@ const DashboardHeader = () => {
           </div>
         </div>
       </div>
-
-      <DashboardItemWheel ListName={'Next Shopping List'}/>
-
-      <DashboardItemWheel ListName={'Favourites'}/>
-
-      <DashboardItemWheel ListName={'Recently Purchased'}/>
     </div>
   
   )
