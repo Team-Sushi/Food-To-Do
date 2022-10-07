@@ -10,7 +10,7 @@ class Navbar extends React.Component {
 
     toggleNav() {
         const newShow = this.state.show === "none" ? "block" : "none";
-        this.setState({ show: newShow});
+        this.setState({ show: newShow });
     }
 
     render() {
