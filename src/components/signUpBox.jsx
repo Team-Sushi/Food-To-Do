@@ -23,7 +23,7 @@ class SignUpBox extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         axios
-            .post('http://localhost:5000/user/register', { // URL is still hardcoded
+            .post('https://ftd-server.herokuapp.com/user/register', {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 email: this.state.email,
@@ -42,7 +42,7 @@ class SignUpBox extends React.Component {
     render() {
         return (
             <div className='login-signup-box'>
-                <div class="login-signup-button">
+                <div className="login-signup-button">
                     <button>
                         <a href="/signup" style={{ fontWeight: "bold", textDecoration: "underline" }}>Sign Up</a>
                         <span> | </span>
