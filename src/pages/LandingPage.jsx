@@ -4,7 +4,7 @@ import {GiBellPepper, GiOrange, GiCoconuts, GiChiliPepper, GiGarlic, GiCoffeeBea
 
 const LandingPage = () => {
 
-  const url = '/Dashboard';
+  const url = '/login';
   
   return (
     <div className='body-landingpage'> 

@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color: #fff5f1;
 }
 
 .dashboard-page-background {
@@ -171,7 +171,7 @@ body {
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    gap: 111px;
+    gap: 5vw;
 
     width: max-content;
     height: 202px;
@@ -201,9 +201,87 @@ body {
     text-align: center;
 }
 
+.dashboard-category-image:hover {
+    transition: transform .5s;
+    transform: scale(1.1);
+}
+
 .dashboard-category-image img {
     width: 10vw;
     height: 10vw;
+    border-radius: 100px;
+}
+
+.dashboard-category-image-custom {
+    width: 10vw;
+    height: 10vw;
+    color: #000000;
+
+    background: #D9D9D9;
+    border-radius: 100px;
+    box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.25);
+
+    align-items: center;
+    display: inline-block;
+    vertical-align: top;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    cursor: pointer;
+    text-align: center;
+}
+
+.dashboard-category-image a:link{
+    text-decoration: none;
+    color: #000000;
+}
+
+.dashboard-category-image a:visited{
+    text-decoration: none;
+    color: #000000;
+}
+
+.dashboard-category-image a:hover{
+    text-decoration: underline;
+    color: #000000;
+}
+
+.dashboard-category-image a:active{
+    text-decoration: underline;
+    color: #000000;
+}
+
+.dashboard-category-image-custom a:link{
+    text-decoration: none;
+    color: #000000;
+}
+
+.dashboard-category-image-custom a:visited{
+    text-decoration: none;
+    color: #000000;
+}
+
+.dashboard-category-image-custom a:hover{
+    text-decoration: underline;
+    color: #000000;
+}
+
+.dashboard-category-image-custom a:active{
+    text-decoration: underline;
+    color: #000000;
+}
+
+.dashboard-category-image-custom:hover {
+    transition: transform .5s;
+    transform: scale(1.1);
+}
+
+.dashboard-category-image-custom img {
+    width: 5vw;
+    height: 5vw;
+    margin-top: 2.5vw;
+    margin-bottom: 2.5vw;
     border-radius: 100px;
 }
 
@@ -262,7 +340,7 @@ body {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 2vw;
+    font-size: 25px;
     line-height: 39px;
 
     color: #000000;
@@ -381,8 +459,3 @@ body {
 .dashboard-no-item-header {
     margin-left: 30px;
 }
-
-/* .slick-slide:hover {
-    transition: transform .5s; 
-    transform: scale(0.5);   
-  } */

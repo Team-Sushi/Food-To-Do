@@ -6,52 +6,13 @@ import '../pages/Dashboard.css';
 import UserProfileBtn from '../components/UserProfileBtn';
 import DashboardCarousel from '../components/DashboardCarousel';
 import { useState } from 'react'
-import { items, recentlyPurchasedItems } from '../components/RecentlyPurchasedData';
-import { favItems } from './FavouritesData';
-import { nextShopItems } from './NextShopListData';
+import { recentlyPurchasedItems } from '../components/RecentlyPurchasedData';
+import { favItems } from '../components/FavouritesData';
+import { nextShopItems } from '../components/NextShopListData';
 import DashboardCarouselHeader from '../components/DashboardCarouselHeader';
 import DashboardCarouselHeaderEmpty from '../components/DashboardCarouselHeaderEmpty';
 
 function Dashboard() {
-
-    // const [nextShopItems, setNextShopItems] = useState([
-    //     {
-    //         id: 1,
-    //         url: './unavailable.png',
-    //         itemName: 'Apple Royal Gala',
-    //         priority: true,
-    //     },
-    //     {
-    //         id: 2,
-    //         url: './unavailable.png',
-    //         itemName: 'Banana Cavendish',
-    //         priority: true,
-    //     },
-    //     {
-    //         id: 3,
-    //         url: './unavailable.png',
-    //         itemName: 'Apple Royal Gala',
-    //         priority: true,
-    //     },
-    // ])
-
-    // const [favourites, setFavourites] = useState ([
-    //     {
-    //         id: 1,
-    //         url: './unavailable.png',
-    //         itemName: 'Johnnie Walkers Black label 700mL',
-    //         priority: true,
-    //     }
-    // ])
-
-    // const [recentlyPurchasedItems, setRecentlyPurchasedItems] = useState ([
-    //     {
-    //         id: 1,
-    //         url: './unavailable.png',
-    //         itemName: 'Banana Cavendish',
-    //         priority: false,
-    //     }
-    // ])
 
     return (
         <div>

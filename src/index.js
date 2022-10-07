@@ -10,6 +10,8 @@ import LandingPage from './pages/LandingPage.jsx';
 import Login from './pages/login.jsx';
 import Signup from "./pages/signup.jsx";
 import Dashboard from "./pages/dashboard.jsx";
+import AddItemPage from './pages/AddItemPage';
+import RemoveItemPage from './pages/RemoveItemPage';
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="additem" element={<AddItemPage />} />
+          <Route path="removeitem" element={<RemoveItemPage />} />
           {/* <Route path="homepage" element={<Homepage />} /> */}
           <Route path="homepage" element={<LandingPage />} />
 
