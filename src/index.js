@@ -9,7 +9,7 @@ import Layout from './pages/layout.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import Login from './pages/login.jsx';
 import Signup from "./pages/signup.jsx";
-import Dashboard from "./pages/Dashboard.jsx";
+import Dashboard from "./pages/dashboard.jsx";
 
 export default function App() {
   return (

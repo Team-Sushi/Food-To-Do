@@ -10,6 +10,22 @@ import {IoIosLogOut} from 'react-icons/io'
 
 const DashboardCarousel = ({ UserItems, ListName }) => {
 
+    var isTouching = false;
+    window.addEventListener('touchstart', function(){
+    document.documentElement.classList.remove('mouse');
+    document.documentElement.classList.add('touch');
+    isTouching = true;
+    });
+    
+    window.addEventListener('mousemove', function(){
+    if(isTouching) isTouching = false
+    else
+    {
+        document.documentElement.classList.remove('touch');
+        document.documentElement.classList.add('mouse');
+    }
+    });
+
     const [defaultImage, setDefaultImage] = useState({});
     const settings = {
         dots: true,
