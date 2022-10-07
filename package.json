@@ -9,10 +9,17 @@
     "axios": "^0.27.2",
     "bootstrap": "^5.2.2",
     "express": "^4.18.1",
+    "jquery": "^3.6.1",
+    "owl.carousel": "^2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-elastic-carousel": "^0.11.5",
+    "react-owl-carousel": "^2.3.3",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^2.1.3",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
