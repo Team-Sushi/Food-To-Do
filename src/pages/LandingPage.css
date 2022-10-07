@@ -13,7 +13,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text: papayawhip;
+    --color-text: #493f3f;
     --color-bg: #FFE6DC;
     --color-bg-accent: #e3cdc4;
   }
