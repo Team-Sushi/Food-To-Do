@@ -23,7 +23,8 @@ class Navbar extends React.Component {
                     <span className="material-symbols-outlined">menu</span></a>
 
                 <div style={{display: this.state.show}}>
-                    <a href="/">Homepage</a>
+                    <a href="/">Landing Page</a>
+                    <a href="/dashboard">Dashboard</a>
                     <a href="/login">Login</a>
                     <a href="/signup">Register</a>
                 </div>
