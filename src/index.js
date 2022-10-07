@@ -12,6 +12,9 @@ import Login from './pages/login.jsx';
 import Signup from "./pages/signup.jsx";
 import Dashboard from "./pages/dashboard.jsx";
 import NextShop from './pages/nextShop';
+// import { Grid } from "@material-ui/core";
+// import Header from "./components/Header";
+// import Content from "./components/nextShopContentDisplay";
 
 export default function App() {
   return (

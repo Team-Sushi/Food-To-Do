@@ -1,10 +1,26 @@
 import React from 'react';
 import "./nextShop.css";
+// import { Grid } from "@material-ui/core";
+// import Header from "./components/Header";
+// import Content from "./components/nextShopContentDisplay";
 import skipback from "./skip-back.png";
 import Navbar from '../components/navbar';
 
 const NextShop = () => {
   return (
+
+    // <Grid container direction="column">
+    //   <Grid item>
+    //     <Header />
+    //   </Grid>
+    //   <Grid item container>
+    //     <Grid item xs={false} sm={2} />
+    //     <Grid item xs={12} sm={8}>
+    //       <Content />
+    //     </Grid>
+    //     <Grid item xs={false} sm={2} />
+    //   </Grid>
+    // </Grid>
       <div className="next-shopping-list-desktop">
         <Navbar />
         <div className="next-shopping-list-title-group">
