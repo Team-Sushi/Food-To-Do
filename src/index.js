@@ -31,7 +31,7 @@ export default function App() {
           <Route path="additem" element={<AddItemPage />} />
           <Route path="removeitem" element={<RemoveItemPage />} />
           {/* <Route path="homepage" element={<Homepage />} /> */}
-          <Route path="homepage" element={<LandingPage />} />
+          <Route path="homepage" element={<NextShop />} />
 
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />
