@@ -10,6 +10,10 @@ import LandingPage from './pages/LandingPage.jsx';
 import Login from './pages/login.jsx';
 import Signup from "./pages/signup.jsx";
 import Dashboard from "./pages/dashboard.jsx";
+import NextShop from './pages/nextShop';
+// import { Grid } from "@material-ui/core";
+// import Header from "./components/Header";
+// import Content from "./components/nextShopContentDisplay";
 import AddItemPage from './pages/AddItemPage';
 import RemoveItemPage from './pages/RemoveItemPage';
 
@@ -27,7 +31,7 @@ export default function App() {
           <Route path="additem" element={<AddItemPage />} />
           <Route path="removeitem" element={<RemoveItemPage />} />
           {/* <Route path="homepage" element={<Homepage />} /> */}
-          <Route path="homepage" element={<LandingPage />} />
+          <Route path="homepage" element={<NextShop />} />
 
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />

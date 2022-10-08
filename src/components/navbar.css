@@ -1,8 +1,10 @@
-/* navigation bar */
+/* whole navigation bar */
 .ham-nav {
     overflow: hidden;
+    align-self: stretch;
     background-color: white;
     position: relative;
+    /* height: 5vw; */
   }
 
 /* logo */
@@ -17,6 +19,10 @@
     right: 0;
     top: 0;
     cursor: pointer;
+    /* width: 2vw;
+    position: absolute;
+    right: 0;
+    top: 0; */
 }
 
 .ham-icon .material-symbols-outlined {
