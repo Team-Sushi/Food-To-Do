@@ -1,0 +1,102 @@
+.add-item-container {
+    text-align: center;
+    width: 400px;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 10px;
+    border: 3px solid rgba(105, 173, 140);
+    padding: 10px;
+    background-color: white;
+  }
+  
+  .add-item-button button{
+    height: 30px;
+    width: 65%;
+    font-size: 15px;
+    margin: 15px;
+    background-color: #B3F5C4;
+    border-radius: 10px;
+    border: 1px solid;
+    cursor: pointer;
+  }
+  
+  .add-item-button a {
+    color: black;
+    text-decoration: none;
+    margin: 3px;
+  }
+  
+  .add-item-form {
+    text-align: left;
+    font-size: 15px;
+    display: grid;
+    grid-template-rows: auto;
+    row-gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .add-item-form span {
+    margin-bottom: 10px;
+  }
+  
+  .add-item-form label {
+    margin: 10px;
+  }
+  
+  .add-item-form-fields input { 
+    margin-right: 10px;
+    float: right;
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    border: 2px;
+    background-color: #D9D9D9;
+  }
+
+  .add-item-form-fields select {
+    width: 51%;
+    float: right;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: 2px solid #D9D9D9;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+
+  /* .add-item-form-fields .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 20;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 5px;
+  } */
+  
+  
+  .keep-signedin {
+    text-align: left;
+    margin-left: 15px;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+  
+  .keep-signedin input {
+    margin-left: 5px;
+  }
+  
+  #submit-button {
+    height: 30px;
+    width: 30%;
+    border-radius: 10px;
+    border: 2px solid #B3F5C4;
+    margin: auto;
+    background-color: #B3F5C4;
+    cursor:pointer;
+  }
+  
+  
+
+
+

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import LoginBox from '../components/loginBox';
 import Navbar from "../components/navbar.jsx";
 import './loginSignUp.css';

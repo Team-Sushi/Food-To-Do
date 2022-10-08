@@ -8,9 +8,8 @@
   }
 
 /* logo */
-.nav-bar-logo {
-    /* width: 40px; */
-    width: 2vw;
+.nav-bar-logo img{
+    width: 40px;
 }
 
 /* hamburger icon */
