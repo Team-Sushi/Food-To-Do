@@ -3,6 +3,7 @@ import "./nextShop.css";
 import skipback from "./skip-back.png";
 import Navbar from '../components/navbar';
 import { Grid } from "@material-ui/core";
+import { IconButton } from '@mui/material';
 import Content from '../components/Content';
 import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
@@ -15,9 +16,10 @@ const NextShop = () => {
       </Grid>
     
     <Grid container direction="row">
-      <Grid item>
-        <SkipPreviousIcon sx={{ fontSize: 50, p:2}}/>
-      </Grid>
+      <IconButton aria-label='skip-back' href='/dashboard'>
+        <SkipPreviousIcon sx={{ fontSize: 50}}/>
+      </IconButton>
+      
       <Grid item>
         <Typography variant='h3' component="h3" gutterBottom>
           Next Shopping List
@@ -34,7 +36,15 @@ const NextShop = () => {
         </Grid>
         <Grid item xs={false} sm={2} />
       </Grid>
+
+      {/* <Grid container direction='row' justifyContent='center' sx={{pt: 2}}>
+        <Typography variant='caption text'>
+          Made with love by Team Sushi
+        </Typography>
+      </Grid> */}
     </Grid>
+
+    
 
       // <div className="next-shopping-list-desktop">
       //   <Navbar />
