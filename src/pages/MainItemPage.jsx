@@ -14,11 +14,16 @@ import { nextShopItems } from '../components/NextShopListData';
 import DashboardCarouselHeader from '../components/DashboardCarouselHeader';
 import DashboardCarouselHeaderEmpty from '../components/DashboardCarouselHeaderEmpty';
 
+<<<<<<< Updated upstream
 function Dashboard() {
+=======
+function ItemPage() {
+>>>>>>> Stashed changes
 
     return (
         <div>
             <Navbar />
+<<<<<<< Updated upstream
             <div className='dashboard-page-background'>
                 <UserProfileBtn />
                 <DashboardHeader />
@@ -43,6 +48,28 @@ function Dashboard() {
                         <DashboardCarousel UserItems={favItems} ListName={'Favourites'}/>
                     </div>
                 ) : <DashboardCarouselHeaderEmpty ListName={'Favourites'}/>}
+=======
+            <div className='main-item-page-background'>
+
+                <div className='leftSide'>
+                    <div className='itemBox'>
+                        <img src=''></img></image>
+                        <div className='justBought'>
+
+                        </div>
+                        <div className='favorites'>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div className='rightSide'>
+
+                </div>
+
+               
+>>>>>>> Stashed changes
             </div>
         </div>
 
@@ -50,4 +77,8 @@ function Dashboard() {
 
 }
 
+<<<<<<< Updated upstream
 export default MainItemPage;
+=======
+export default ItemPage;
+>>>>>>> Stashed changes
