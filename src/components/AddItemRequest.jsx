@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/navbar";
+import './navbar.css';
 import '../pages/AddItemPage.css';
 
 function AddItemRequest() {
@@ -16,19 +17,19 @@ function AddItemRequest() {
                 </div>
                 <form action="add-request" method="POST" className="add-item-form">
                     <span className="add-item-form-fields">
-                        <label for="email">
+                        <label for="item-name">
                             {/* <i className="material-symbols-outlined">item</i> */}
                             Item Name
                         </label>
-                        <input type="email" name="email" />
+                        <input type="item-name" name="item-name" />
                     </span>
 
                     <span className="add-item-form-fields">
-                        <label for="password">
+                        <label for="external-url">
                             {/* <i className="material-symbols-outlined">lock</i> */}
                             External URL
                         </label>
-                        <input type="password" name="password" />
+                        <input type="external-url" name="external-url" />
                     </span>
 
                     <span className="add-item-form-fields">

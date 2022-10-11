@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/navbar";
+import './navbar.css';
 import '../pages/AddItemPage.css';
 
 class RemoveItemRequest extends React.Component {
