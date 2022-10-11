@@ -1,11 +1,22 @@
 import React from 'react'
 import {IoIosLogOut} from 'react-icons/io'
+import '../pages/dashboard-final.css'
 
 const DashboardCarouselHeaderEmpty = ({ListName}) => {
+
+    let hrefLink = '';
+  if(ListName == 'Next Shopping List') {
+    hrefLink = '/nextshop'
+  } else if (ListName == 'Recently Purchased') {
+    hrefLink = '/recentlypurchased'
+  } else if (ListName == 'Favourites') {
+    hrefLink = '/favourites'
+  }
+
   return (
     <div>
         <div className='dashboard-item-wheel-container'>
-            <a className='dashboard-item-wheel-title' href='/LandingPage'>
+            <a className='dashboard-item-wheel-title' href={hrefLink}>
                 <h1>
                     {ListName}
                 </h1>

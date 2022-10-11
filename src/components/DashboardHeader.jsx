@@ -1,5 +1,5 @@
 import React from 'react'
-import '../pages/Dashboard.css'
+import '../pages/dashboard-final.css'
 import Vegetables from '../components/vegetables.jpg'
 import Meat from '../components/meat.jpg'
 import Dairy from '../components/dairy.jpg'

@@ -363,7 +363,7 @@ body {
 
 
 
-/* Dashboard Carousel Part 2 */
+/* Dashboard Carousel - React Slick version */
 
 .Dashboard-Carousel {
     width: 95%;
@@ -459,3 +459,5 @@ body {
 .dashboard-no-item-header {
     margin-left: 30px;
 }
+
+/* Made with love text */
