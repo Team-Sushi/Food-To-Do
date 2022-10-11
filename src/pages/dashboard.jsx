@@ -2,7 +2,7 @@ import React from 'react'
 import DashboardHeader from '../components/DashboardHeader';
 import Navbar from '../components/navbar';
 import '../components/navbar.css';
-import '../pages/Dashboard.css';
+import '../pages/dashboard-final.css';
 import UserProfileBtn from '../components/UserProfileBtn';
 import DashboardCarousel from '../components/DashboardCarousel';
 import { useState } from 'react'
@@ -42,6 +42,8 @@ function Dashboard() {
                     </div>
                 ) : <DashboardCarouselHeaderEmpty ListName={'Favourites'}/>}
             </div>
+
+            
         </div>
 
     )

@@ -3,7 +3,7 @@
   --color-text: #493f3f;
   --color-bg: #FFE6DC;
   --color-bg-accent: #e3cdc4;
-  --size: clamp(10rem, 1rem + 40vmin, 30rem);
+  --size: clamp(10rem, calc(1rem + 40vmin), 30rem);
   --gap: calc(var(--size) / 14);
   --duration: 60s;
   --scroll-start: 0;
