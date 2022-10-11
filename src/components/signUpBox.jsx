@@ -24,7 +24,7 @@ class SignUpBox extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         axios
-            .post('https://ftd-server.herokuapp.com/user/register', {
+            .post('http://localhost:5000/user/register', {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 email: this.state.email,

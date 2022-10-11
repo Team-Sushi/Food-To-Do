@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 class LoginBox extends React.Component {
 
@@ -57,7 +58,7 @@ class LoginBox extends React.Component {
     render() {
         return (
             <div className='login-signup-box'>
-                <div class="login-signup-button">
+                <div className="login-signup-button">
                     <button>
                         <a href="/signup">Sign Up</a>
                         <span> | </span>
@@ -66,14 +67,14 @@ class LoginBox extends React.Component {
                 </div>
                 <form onSubmit={this.handleSubmit} className="form">
                     <span className="form-fields">
-                        <label for="email">
+                        <label htmlFor="email">
                             <i className="material-symbols-outlined">mail</i>Email
                         </label>
                         <input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
                     </span>
 
                     <span className="form-fields">
-                        <label for="password">
+                        <label htmlFor="password">
                             <i className="material-symbols-outlined">lock</i>Password
                         </label>
                         <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
