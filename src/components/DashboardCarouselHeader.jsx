@@ -5,11 +5,11 @@ import '../pages/dashboard-final.css'
 const DashboardCarouselHeader = ({ListName}) => {
 
   let hrefLink = '';
-  if(ListName == 'Next Shopping List') {
+  if(ListName === 'Next Shopping List') {
     hrefLink = '/nextshop'
-  } else if (ListName == 'Recently Purchased') {
+  } else if (ListName === 'Recently Purchased') {
     hrefLink = '/recentlypurchased'
-  } else if (ListName == 'Favourites') {
+  } else if (ListName === 'Favourites') {
     hrefLink = '/favourites'
   }
  
