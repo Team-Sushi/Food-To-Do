@@ -32,7 +32,7 @@ export default function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="additem" element={<AddItemPage />} />
           <Route path="removeitem" element={<RemoveItemPage />} />
-          <Route path="homepage" element={<Homepage />} />
+          {/* <Route path="homepage" element={<Homepage />} /> */}
           <Route path="allitems" element={<AllItems />} />
           <Route path="nextshoppinglist" element={<NextShop/>} />
           <Route path="recentlypurchased" element={<RecentlyPurchased />} />

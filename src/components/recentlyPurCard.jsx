@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import { Avatar, IconButton, CardMedia } from "@material-ui/core";
 
 const RecentlyPurCard = props => {
-  const {title, imageUrl } = props;
+  const {itemName, itemImageURL } = props;
   const myTheme = {
     cardHeaderStylePref:{
        height: 200,
@@ -20,8 +20,8 @@ const RecentlyPurCard = props => {
   return (
     <Card>
       {/* <CardMedia style={{ height: "200px" }} image={imageUrl} /> */}
-      <CardMedia style={myTheme.cardHeaderStylePref} image={imageUrl} />
-      <CardHeader title={title} 
+      <CardMedia style={myTheme.cardHeaderStylePref} image={itemImageURL} />
+      <CardHeader title={itemName} 
         style={{ textAlign: 'center' }}/>
     </Card>
   );
