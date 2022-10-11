@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { useAuth } from "./auth";
 
 import './index.css';
 
@@ -13,6 +13,13 @@ import Dashboard from "./pages/dashboard.jsx";
 import AddItemPage from './pages/AddItemPage';
 import RemoveItemPage from './pages/RemoveItemPage';
 
+
+function RequireAuth({ children }) {
+  const authed = useAuth();
+  console.log("authed = " + authed);
+  return authed === true ? children : <Navigate to="/login" replace />;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -23,11 +30,30 @@ export default function App() {
           <Route path="landingpage" element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="additem" element={<AddItemPage />} />
-          <Route path="removeitem" element={<RemoveItemPage />} />
-          {/* <Route path="homepage" element={<Homepage />} /> */}
-          <Route path="homepage" element={<LandingPage />} />
+          <Route
+            path="dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="additem"
+            element={
+              <RequireAuth>
+                <AddItemPage />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="removeitem"
+            element={
+              <RequireAuth>
+                <RemoveItemPage />
+              </RequireAuth>
+            }
+          />
 
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />
@@ -48,8 +74,3 @@ root.render(
   </React.StrictMode>
 );
 
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
