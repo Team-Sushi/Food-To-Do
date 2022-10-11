@@ -17,6 +17,7 @@ import NextShop from './pages/nextShop';
 import AddItemPage from './pages/AddItemPage';
 import RemoveItemPage from './pages/RemoveItemPage';
 import RecentlyPurchased from './pages/recentlyPurchased';
+import AllItems from './pages/allItems';
 
 export default function App() {
   return (
@@ -32,7 +33,7 @@ export default function App() {
           <Route path="additem" element={<AddItemPage />} />
           <Route path="removeitem" element={<RemoveItemPage />} />
           {/* <Route path="homepage" element={<Homepage />} /> */}
-          <Route path="homepage" element={<RecentlyPurchased />} />
+          <Route path="homepage" element={<AllItems />} />
 
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />
