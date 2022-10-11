@@ -34,7 +34,8 @@ export default function App() {
           <Route path="removeitem" element={<RemoveItemPage />} />
           <Route path="homepage" element={<Homepage />} />
           <Route path="allitems" element={<AllItems />} />
-
+          <Route path="nextshoppinglist" element={<NextShop/>} />
+          <Route path="recentlypurchased" element={<RecentlyPurchased />} />
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />
           */}
