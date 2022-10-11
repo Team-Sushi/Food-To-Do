@@ -1,7 +1,8 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import coffeMakerList from "./constants";
+// import coffeMakerList from "./constants";
 import RecentlyPurCard from "./recentlyPurCard";
+import { recentlyPurchasedItems } from "./RecentlyPurchasedData"
 
 const RecentlyPurContent = () => {
   const getCard = cardObj => {
@@ -14,7 +15,7 @@ const RecentlyPurContent = () => {
 
   return (
     <Grid container spacing={4}>
-      {coffeMakerList.map(cardObj => getCard(cardObj))}
+      {recentlyPurchasedItems.map(cardObj => getCard(cardObj))}
     </Grid>
   );
 };
