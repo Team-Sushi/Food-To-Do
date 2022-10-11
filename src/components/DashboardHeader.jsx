@@ -5,6 +5,7 @@ import Meat from '../components/meat.jpg'
 import Dairy from '../components/dairy.jpg'
 import Pantry from '../components/pantry.jpg'
 import Alcohol from '../components/alcohol.jpg'
+import AllItems from '../components/all-items.jpg'
 import Plus from '../components/plus.png'
 
 const DashboardHeader = () => {
@@ -19,7 +20,7 @@ const DashboardHeader = () => {
         <div className='dashboard-category-container'>
 
           <div className='dashboard-category-image'>
-            <a href='./landingpage'>
+            <a href='./vegetables'>
               <img src={Vegetables} alt=''/>
 
               <span className='dashboard-category-caption'>Fresh produce</span>
@@ -27,7 +28,7 @@ const DashboardHeader = () => {
           </div>
 
           <div className='dashboard-category-image'>
-            <a href='./landingpage'>
+            <a href='./dairy'>
               <img src={Dairy} alt=''/>
 
               <span className='dashboard-category-caption'>Dairy</span>
@@ -35,7 +36,7 @@ const DashboardHeader = () => {
           </div>
 
           <div className='dashboard-category-image'>
-            <a href='./landingpage'>
+            <a href='./meat&poultry'>
               <img src={Meat} alt=''/>
 
               <span className='dashboard-category-caption'>Meat & Poultry</span>
@@ -43,7 +44,7 @@ const DashboardHeader = () => {
           </div>
 
           <div className='dashboard-category-image'>
-            <a href='./landingpage'>
+            <a href='./pantry'>
               <img src={Pantry} alt=''/>
 
               <span className='dashboard-category-caption'>Pantry</span>
@@ -51,10 +52,10 @@ const DashboardHeader = () => {
           </div>
 
           <div className='dashboard-category-image'>
-            <a href='./landingpage'>
-              <img src={Alcohol} alt=''/>
+            <a href='./allitems'>
+              <img src={AllItems} alt=''/>
 
-              <span className='dashboard-category-caption'>Alcohol</span>
+              <span className='dashboard-category-caption'>All Items</span>
             </a>
           </div>
 
