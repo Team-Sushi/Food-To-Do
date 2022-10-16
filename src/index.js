@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom"
 import axios from "axios";
 
 import './index.css';
@@ -13,15 +13,15 @@ import Dashboard from "./pages/dashboard.jsx";
 import AddItemPage from './pages/AddItemPage';
 import RemoveItemPage from './pages/RemoveItemPage';
 
+async function useAuth() {
+  var res = await axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true })
+  return await res.data
+}
 
-function RequireAuth({ children }) {
-  const [auth, setAuth] = React.useState(false);
-  axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
-    setAuth(res.data);
-    console.log("res.data = " + res.data);
-    console.log("auth = " + auth);
-    return auth === true ? children : <Navigate to="/login" replace />;
-  });
+function RequireAuth({children}) {
+  let auth = useAuth();
+  console.log("auth = " + auth)
+  return auth === true ? children : <Navigate to="/login" replace />;
 }
 
 export default function App() {
