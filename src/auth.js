@@ -4,11 +4,12 @@ import axios from "axios";
 const authContext = React.createContext();
 
 export async function useAuth() {
-
-    await axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then(res => {
-        console.log("res.data = " + res.data);
-        return res.data;
-    });
+    let res = await axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true });
+    console.log("res.data = " + res.data);
+ 
+    let auth = await res.data;
+    console.log("auth =" + auth);
+    return await auth;
 }
 
 
