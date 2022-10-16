@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import axios from "axios";
 
 import './index.css';
 
@@ -19,6 +19,17 @@ import RemoveItemPage from './pages/RemoveItemPage';
 import RecentlyPurchased from './pages/recentlyPurchased';
 import AllItems from './pages/allItems';
 
+
+function RequireAuth({ children }) {
+  const [auth, setAuth] = React.useState(false);
+  axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
+    setAuth(res.data);
+    console.log("res.data = " + res.data);
+    console.log("auth = " + auth);
+    return auth === true ? children : <Navigate to="/login" replace />;
+  });
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -29,13 +40,31 @@ export default function App() {
           <Route path="landingpage" element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="additem" element={<AddItemPage />} />
-          <Route path="removeitem" element={<RemoveItemPage />} />
-          {/* <Route path="homepage" element={<Homepage />} /> */}
-          <Route path="allitems" element={<AllItems />} />
-          <Route path="nextshoppinglist" element={<NextShop/>} />
-          <Route path="recentlypurchased" element={<RecentlyPurchased />} />
+          <Route
+            path="dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="additem"
+            element={
+              <RequireAuth>
+                <AddItemPage />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="removeitem"
+            element={
+              <RequireAuth>
+                <RemoveItemPage />
+              </RequireAuth>
+            }
+          />
+
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />
           */}
@@ -55,8 +84,3 @@ root.render(
   </React.StrictMode>
 );
 
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
