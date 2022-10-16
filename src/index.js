@@ -18,6 +18,7 @@ import AddItemPage from './pages/AddItemPage';
 import RemoveItemPage from './pages/RemoveItemPage';
 import RecentlyPurchased from './pages/recentlyPurchased';
 import AllItems from './pages/allItems';
+import TestItem from './pages/testItem';
 
 
 function RequireAuth({ children }) {
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="nextshoppinglist" element={<NextShop />} />
           <Route path="recentlypurchased" element={<RecentlyPurchased />} />
           <Route path="items" element={<AllItems />} />
+          <Route path="testitem" element={<TestItem />} />
           <Route
             path="dashboard"
             element={
