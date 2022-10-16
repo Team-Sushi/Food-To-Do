@@ -6,7 +6,7 @@ const authContext = React.createContext();
 export function useAuth() {
     const [authed, setAuthed] = React.useState(false);
 
-    axios.get('http://localhost:5000/user/protected', { withCredentials: true }).then(res => {
+    axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then(res => {
         console.log(res.data);
         setAuthed(res.data);
     })
