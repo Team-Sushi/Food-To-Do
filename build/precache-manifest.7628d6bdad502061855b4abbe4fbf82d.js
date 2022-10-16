@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "0c1b1cba9b7cc4220cfd",
+    "revision": "2892da70fbce11eaf59d",
     "url": "/static/css/main.09930ae6.chunk.css"
   },
   {
-    "revision": "0c1b1cba9b7cc4220cfd",
-    "url": "/static/js/main.5577da72.chunk.js"
+    "revision": "2892da70fbce11eaf59d",
+    "url": "/static/js/main.5257b9c9.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -18,10 +18,6 @@ self.__precacheManifest = [
   {
     "revision": "98fd2c338d7464e4d327",
     "url": "/static/js/2.12c40ee1.chunk.js"
-  },
-  {
-    "revision": "8fcf6ee1bef2b1d11d4f04a5cc79b51c",
-    "url": "/static/media/foodToDoLogo.8fcf6ee1.png"
   },
   {
     "revision": "01ffc5629e630df61a7e0a24289c6829",
@@ -44,6 +40,10 @@ self.__precacheManifest = [
     "url": "/static/media/all-items.b50f0ba0.jpg"
   },
   {
+    "revision": "8fcf6ee1bef2b1d11d4f04a5cc79b51c",
+    "url": "/static/media/foodToDoLogo.8fcf6ee1.png"
+  },
+  {
     "revision": "e459835010bf256bf5e3f7423b43bc51",
     "url": "/static/media/defaultUserImage.e4598350.png"
   },
@@ -56,19 +56,19 @@ self.__precacheManifest = [
     "url": "/static/media/slick.b7c9e1e4.woff"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/static/media/slick.ced611da.eot"
+    "revision": "f97e3bbf73254b0112091d0192f17aec",
+    "url": "/static/media/slick.f97e3bbf.svg"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
     "url": "/static/media/slick.d41f55a7.ttf"
   },
   {
-    "revision": "f97e3bbf73254b0112091d0192f17aec",
-    "url": "/static/media/slick.f97e3bbf.svg"
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/static/media/slick.ced611da.eot"
   },
   {
-    "revision": "05e1af7112eef09649c12c0914c88fc1",
+    "revision": "efee97e7c1fe307deb33646836577236",
     "url": "/index.html"
   }
 ];
