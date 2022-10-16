@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import { useAuth } from "./auth";
+import axios from "axios";
 
 import './index.css';
 
@@ -14,10 +14,14 @@ import AddItemPage from './pages/AddItemPage';
 import RemoveItemPage from './pages/RemoveItemPage';
 
 
-async function RequireAuth({ children }) {
-  const authed = await useAuth();
-  console.log("authed = " + authed);
-  return authed === true ? children : <Navigate to="/login" replace />;
+function RequireAuth({ children }) {
+  const [auth, setAuth] = React.useState(false);
+  axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
+    setAuth(res.data);
+    console.log("res.data = " + res.data);
+  });
+  console.log("auth = " + auth);
+  return auth === true ? children : <Navigate to="/login" replace />;
 }
 
 export default function App() {
