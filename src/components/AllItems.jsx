@@ -5,7 +5,7 @@ function GetAllItems() {
     const [allItems, setAllItems] = useState('');
 
     axios
-        .get('http://localhost:9000/item', 
+        .get('https://ftd-server.herokuapp.com/item', 
         {withCredentials: true},
         )
 

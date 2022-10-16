@@ -29,11 +29,11 @@ function Dashboard() {
     
 
     var shoppingListURL =
-    "http://localhost:3012/item";
+    "https://ftd-server.herokuapp.com/item";
     var recentlyBoughtItemsURL =
-    "http://localhost:3012/item/recentlyBoughtItems";
+    "https://ftd-server.herokuapp.com/item/recentlyBoughtItem";
     var favouritesURL =
-    "http://localhost:3012/item/favourites";
+    "https://ftd-server.herokuapp.com/item/favourites";
 
     const [shoppingList, setShoppingList] = useState('')
     const [recentlyBoughtItems, setRecentlyBoughtItems] = useState('');

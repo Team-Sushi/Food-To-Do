@@ -5,7 +5,7 @@ function recentlyPurchasedItems() {
     const [recentlyBoughtItems, setRecentlyBoughtItems] = useState('');
 
     axios
-        .get('http://localhost:9000/item/recentlyBoughtItems', 
+        .get('https://ftd-server.herokuapp.com/item', 
         {withCredentials: true},
         )
 
