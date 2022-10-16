@@ -40,6 +40,9 @@ export default function App() {
           <Route path="landingpage" element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="nextshoppinglist" element={<NextShop />} />
+          <Route path="recentlypurchased" element={<RecentlyPurchased />} />
+          <Route path="items" element={<AllItems />} />
           <Route
             path="dashboard"
             element={
