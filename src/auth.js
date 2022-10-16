@@ -8,7 +8,7 @@ export async function useAuth() {
 
     console.log("response.data = " + response.data);
 
-    return response.data;
+    return Promise.resolve(response.data);
 }
 
 export function AuthProvider({ children }) {
