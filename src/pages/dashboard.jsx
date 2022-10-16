@@ -1,6 +1,6 @@
 import React from 'react'
+import { useEffect } from 'react';
 import axios from "axios";
-
 import DashboardHeader from '../components/DashboardHeader';
 import Navbar from '../components/navbar';
 import '../components/navbar.css';
@@ -12,8 +12,21 @@ import DashboardCarousel from '../components/DashboardCarousel';
 import { useState } from 'react'
 import DashboardCarouselHeader from '../components/DashboardCarouselHeader';
 import DashboardCarouselHeaderEmpty from '../components/DashboardCarouselHeaderEmpty';
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+    const navigate = useNavigate();
+    useEffect(() => {
+        async function useAuth() {
+          await axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
+            if (res.data === false) {
+              navigate("/login");
+            }
+          })  
+        }
+        useAuth();
+      }, []);
+    
 
     var shoppingListURL =
     "http://localhost:3012/item";
