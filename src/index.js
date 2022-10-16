@@ -19,9 +19,9 @@ function RequireAuth({ children }) {
   axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
     setAuth(res.data);
     console.log("res.data = " + res.data);
+    console.log("auth = " + auth);
+    return auth === true ? children : <Navigate to="/login" replace />;
   });
-  console.log("auth = " + auth);
-  return auth === true ? children : <Navigate to="/login" replace />;
 }
 
 export default function App() {
