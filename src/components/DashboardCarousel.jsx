@@ -31,6 +31,7 @@ const DashboardCarousel = ({ UserItems }) => {
         slidesToShow: 6,
         slidesToScroll: 3,
         initialSlide: 0,
+        // adaptiveHeight: true,
         responsive: [
         {
             breakpoint: 1024,
@@ -52,7 +53,7 @@ const DashboardCarousel = ({ UserItems }) => {
         {
             breakpoint: 480,
             settings: {
-            slidesToShow: 3,
+            slidesToShow: 2,
             slidesToScroll: 1,
             },
         },

@@ -17,7 +17,13 @@ class Navbar extends React.Component {
 
         return (
             <div className="ham-nav">
-                <a href="/" className="nav-bar-logo"><img src={logo} alt="Food To Do" /></a>
+                {/* <a href="/" className="nav-bar-logo">
+                    <img href="/" src={logo} alt="Food To Do" />
+                </a> */}
+
+                <div className="nav-bar-logo">
+                    <img href="/" src={logo} alt="Food To Do" />
+                </div>
 
                 <a onClick={() => this.toggleNav()} className="ham-icon">
                     <span className="material-symbols-outlined">menu</span></a>

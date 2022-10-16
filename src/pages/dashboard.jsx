@@ -4,6 +4,9 @@ import Navbar from '../components/navbar';
 import '../components/navbar.css';
 import '../pages/dashboard-final.css';
 import UserProfileBtn from '../components/UserProfileBtn';
+
+import UserProfileHeader from '../components/UserProfileHeader';
+
 import DashboardCarousel from '../components/DashboardCarousel';
 import { useState } from 'react'
 import { recentlyPurchasedItems } from '../components/RecentlyPurchasedData';
@@ -18,7 +21,8 @@ function Dashboard() {
         <div>
             <Navbar />
             <div className='dashboard-page-background'>
-                <UserProfileBtn />
+                {/* <UserProfileBtn /> */}
+                <UserProfileHeader />
                 <DashboardHeader />
 
                 {nextShopItems.length > 0 ? (

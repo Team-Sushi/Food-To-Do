@@ -81,7 +81,7 @@ body {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 2.5vw;
     line-height: 30px;
 
     color: #000000;
@@ -151,12 +151,12 @@ body {
 
 .dashboard-header-title {
     width: max-content;
-    height: 35.75px;
+    height: max-content;
 
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 3vw;
     line-height: 39px;
 
     color: #000000;
@@ -311,7 +311,7 @@ body {
     display: flex;
     align-items: flex-start;
     margin-left: 15px;
-    padding: 10px;
+    padding: 5px 5vw;
     gap: 30px;    
     
 }
@@ -366,7 +366,7 @@ body {
 /* Dashboard Carousel - React Slick version */
 
 .Dashboard-Carousel {
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
     /* align-items: flex-start; */
     /* margin-top: 0; */
@@ -459,5 +459,3 @@ body {
 .dashboard-no-item-header {
     margin-left: 30px;
 }
-
-/* Made with love text */
