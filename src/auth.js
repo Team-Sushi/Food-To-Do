@@ -14,8 +14,8 @@ export async function useAuth() {
 
 
 
-export function AuthProvider({ children }) {
-    const auth = useAuth();
+export async function AuthProvider({ children }) {
+    const auth = await useAuth();
 
     return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 }

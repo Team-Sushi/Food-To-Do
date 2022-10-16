@@ -14,8 +14,8 @@ import AddItemPage from './pages/AddItemPage';
 import RemoveItemPage from './pages/RemoveItemPage';
 
 
-function RequireAuth({ children }) {
-  const authed = useAuth();
+async function RequireAuth({ children }) {
+  const authed = await useAuth();
   console.log("authed = " + authed);
   return authed === true ? children : <Navigate to="/login" replace />;
 }
