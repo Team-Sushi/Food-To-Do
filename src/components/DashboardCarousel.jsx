@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
-// import { items } from './RecentlyPurchasedData';
-import imgDef from './unavailable.png';
+import imgDef from './image-unavailable.png';
+import '../pages/dashboard-final.css'
 
 const DashboardCarousel = ({ UserItems }) => {
 
@@ -76,19 +75,15 @@ const DashboardCarousel = ({ UserItems }) => {
                     <div className="dashboard-item-card-top">
                         <img
                             src={
-                            defaultImage[item.title] === item.title
+                            defaultImage[item.itemName] === item.itemName
                                 ? defaultImage.linkDefault
-                                : item.linkImg
+                                : item.itemImageURL
                             }
-                            alt={item.title}
+                            alt={item.itemName}
                             onError={handleErrorImage}
                         />
-                        <h1>{item.title}</h1>
+                        <h1>{item.itemName}</h1>
                     </div>
-                    {/* <div className="dashboard-item-card-bottom">
-                        <h3>{item.price}</h3>
-                        <span className="dashboard-item-category">{item.category}</span>
-                    </div> */}
                 </div>
                 ))}
             </Slider>
