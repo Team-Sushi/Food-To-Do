@@ -8,8 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Avatar, IconButton, CardMedia } from "@material-ui/core";
 
-const RecentlyPurCard = props => {
-  const {itemName, itemImageURL } = props;
+const ItemCard = props => {
+  const {title, imageUrl } = props;
   const myTheme = {
     cardHeaderStylePref:{
        height: 200,
@@ -20,11 +20,11 @@ const RecentlyPurCard = props => {
   return (
     <Card>
       {/* <CardMedia style={{ height: "200px" }} image={imageUrl} /> */}
-      <CardMedia style={myTheme.cardHeaderStylePref} image={itemImageURL} />
-      <CardHeader title={itemName} 
+      <CardMedia style={myTheme.cardHeaderStylePref} image={imageUrl} />
+      <CardHeader title={title} 
         style={{ textAlign: 'center' }}/>
     </Card>
   );
 };
 
-export default RecentlyPurCard;
+export default ItemCard;
