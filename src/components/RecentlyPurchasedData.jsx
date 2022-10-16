@@ -6,7 +6,7 @@ export const recentlyPurchasedItems = [
         itemURL: '',
         categoryID: 'Produce',
         itemImageURL:
-            './unavailable.png', 
+            '', 
     },
     {
         id: 2,
