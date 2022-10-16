@@ -16,11 +16,11 @@ import DashboardCarouselHeaderEmpty from '../components/DashboardCarouselHeaderE
 function Dashboard() {
 
     var shoppingListURL =
-    "http://localhost:9000/item";
+    "http://localhost:3012/item";
     var recentlyBoughtItemsURL =
-    "http://localhost:9000/items/recentlyBoughtItems";
+    "http://localhost:3012/item/recentlyBoughtItems";
     var favouritesURL =
-    "http://localhost:9000/items/favourites";
+    "http://localhost:3012/item/favourites";
 
     const [shoppingList, setShoppingList] = useState('')
     const [recentlyBoughtItems, setRecentlyBoughtItems] = useState('');
@@ -29,6 +29,7 @@ function Dashboard() {
     axios
         .get(shoppingListURL, {withCredentials:true})
         .then((response) => {
+            console.log(response.data)
         setShoppingList(response.data)
         })
 
@@ -59,7 +60,7 @@ function Dashboard() {
                     </div>
                 ) : <DashboardCarouselHeaderEmpty ListName={'Next Shopping List'}/>}
                 
-                {recentlyBoughtItems.length > 0 ? (
+                {/* {recentlyBoughtItems.length > 0 ? (
                     <div>
                         <DashboardCarouselHeader ListName={'Recently Purchased'}/>
                         <DashboardCarousel UserItems={recentlyBoughtItems} ListName={'Recently Purchased'}/>
@@ -71,7 +72,7 @@ function Dashboard() {
                         <DashboardCarouselHeader ListName={'Favourites'}/>
                         <DashboardCarousel UserItems={favourites} ListName={'Favourites'}/>
                     </div>
-                ) : <DashboardCarouselHeaderEmpty ListName={'Favourites'}/>}
+                ) : <DashboardCarouselHeaderEmpty ListName={'Favourites'}/>} */}
             </div>
 
             
