@@ -4,7 +4,10 @@
     align-self: stretch;
     background-color: white;
     position: relative;
-    /* height: 5vw; */
+    width:100vw;
+    box-sizing: border-box;
+    padding: 8px 8px;
+    display: block;
   }
 
 /* logo */
@@ -16,7 +19,7 @@
 .ham-nav a.ham-icon {
     display: block;
     position: absolute;
-    right: 0;
+    right: 1vw;
     top: 0;
     cursor: pointer;
     /* width: 2vw;

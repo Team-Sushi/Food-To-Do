@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom"
 import axios from "axios";
-
 import './index.css';
 
 import Layout from './pages/layout.jsx';
@@ -19,17 +18,6 @@ import RemoveItemPage from './pages/RemoveItemPage';
 import RecentlyPurchased from './pages/recentlyPurchased';
 import AllItems from './pages/allItems';
 
-
-function RequireAuth({ children }) {
-  const [auth, setAuth] = React.useState(false);
-  axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
-    setAuth(res.data);
-    console.log("res.data = " + res.data);
-    console.log("auth = " + auth);
-    return auth === true ? children : <Navigate to="/login" replace />;
-  });
-}
-
 export default function App() {
   return (
     <BrowserRouter>
@@ -40,6 +28,7 @@ export default function App() {
           <Route path="landingpage" element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+<<<<<<< HEAD
           <Route path="nextshoppinglist" element={<NextShop />} />
           <Route path="recentlypurchased" element={<RecentlyPurchased />} />
           <Route path="items" element={<AllItems />} />
@@ -67,6 +56,11 @@ export default function App() {
               </RequireAuth>
             }
           />
+=======
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="additem" element={<AddItemPage />} />
+          <Route path="removeitem" element={<RemoveItemPage />} />
+>>>>>>> main
 
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />
