@@ -21,7 +21,7 @@ import axios from 'axios';
 
 function TestItem ({favState, cartState, recentState}) {
   
-  const allItemsURL = "http://localhost:3012/item";
+  const allItemsURL = "https://foodtodo.herokuapp/item";
   const [items, setItems] = useState([]);
 
   axios

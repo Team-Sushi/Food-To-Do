@@ -19,7 +19,7 @@ function Dashboard() {
 
     useEffect(() => {
         async function useAuth() {
-          await axios.get('http://localhost:3012/user/protected', { withCredentials: true }).then((res) => {
+          await axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
             if (res.data === false) {
               navigate("/login");
             }
@@ -29,20 +29,20 @@ function Dashboard() {
       }, []);
 
     var usernameURL = 
-    // "https://ftd-server.herokuapp.com/user/getName";
-    "http://localhost:3012/user/getName";
+    "https://ftd-server.herokuapp.com/user/getName";
+    // "http://localhost:3012/user/getName";
 
     var shoppingListURL =
-    // "https://ftd-server.herokuapp.com/item/shoppingList";
-    "http://localhost:3012/item/shoppingList";
+    "https://ftd-server.herokuapp.com/item/shoppingList";
+    // "http://localhost:3012/item/shoppingList";
 
     var recentlyBoughtItemsURL =
-    // "https://ftd-server.herokuapp.com/item/recentlyBought";
-    "http://localhost:3012/recentlyBought";
+    "https://ftd-server.herokuapp.com/item/recentlyBought";
+    // "http://localhost:3012/recentlyBought";
     
     var favouritesURL =
-    // "https://ftd-server.herokuapp.com/item/favorites";
-    "http://localhost:3012/favorites";
+    "https://ftd-server.herokuapp.com/item/favorites";
+    // "http://localhost:3012/favorites";
 
     const [shoppingList, setShoppingList] = useState([]);
     const [recentlyBoughtItems, setRecentlyBoughtItems] = useState([]);
