@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom"
-import axios from "axios";
 import './index.css';
 
 import Layout from './pages/layout.jsx';
@@ -25,7 +24,7 @@ export default function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="additem" element={<AddItemPage />} />
           <Route path="removeitem" element={<RemoveItemPage />} />
-
+          
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />
           */}

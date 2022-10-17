@@ -2,7 +2,9 @@ import React from 'react'
 import {IoIosLogOut} from 'react-icons/io'
 import '../pages/dashboard-final.css'
 
-const DashboardCarouselHeader = ({ListName}) => {
+const DashboardCarouselHeader = ({ListName, ListArray}) => {
+
+  // const navigate = useNavigate();
 
   let hrefLink = '';
   if(ListName === 'Next Shopping List') {
@@ -15,7 +17,7 @@ const DashboardCarouselHeader = ({ListName}) => {
  
   return (
     <div className='dashboard-item-wheel-container'>
-        <a className='dashboard-item-wheel-title' href={hrefLink}>
+        <a className='dashboard-item-wheel-title' href={hrefLink} >
             <h1>
                 {ListName}
             </h1>

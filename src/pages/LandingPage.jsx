@@ -138,7 +138,7 @@ const LandingPage = () => {
         </div>
     </div>
 
-    <div className='getstartedbtn'>
+    <div className='getstartedbtn-container'>
         <button
             type="button"
             onClick={() => window.location.replace(url)}

@@ -29,7 +29,8 @@ function Dashboard() {
     
 
     var shoppingListURL =
-    "https://ftd-server.herokuapp.com/item";
+    // "https://ftd-server.herokuapp.com/item";
+    "http://localhost:3012/item"
     var recentlyBoughtItemsURL =
     "https://ftd-server.herokuapp.com/item/recentlyBoughtItem";
     var favouritesURL =
@@ -42,7 +43,6 @@ function Dashboard() {
     axios
         .get(shoppingListURL, {withCredentials:true})
         .then((response) => {
-            console.log(response.data)
         setShoppingList(response.data)
         })
 
@@ -68,7 +68,7 @@ function Dashboard() {
                 
                 {shoppingList.length > 0 ? (
                     <div>
-                        <DashboardCarouselHeader ListName={'Next Shopping List'}/>
+                        <DashboardCarouselHeader ListName={'Next Shopping List'} ListArray={shoppingList}/>
                         <DashboardCarousel UserItems={shoppingList} ListName={'Next Shopping List'}/>
                     </div>
                 ) : <DashboardCarouselHeaderEmpty ListName={'Next Shopping List'}/>}
