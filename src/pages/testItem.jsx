@@ -17,8 +17,6 @@ import { useState } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
-// import {Grid, Select} from "@mui/material"
-
 
 const TestItem = ({itemName, favState, cartState, recentState}) => {
 
