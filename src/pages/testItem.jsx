@@ -19,6 +19,8 @@ import Select from '@material-ui/core/Select';
 import { FormControl } from '@mui/material';
 import { InputLabel } from '@mui/material';
 import { MenuItem } from '@mui/material';
+import MaterialUIPickers from '../components/calendar';
+
 
 const TestItem = () => {
   return (
@@ -56,24 +58,45 @@ const TestItem = () => {
             </Button>
         </Grid>
         <Grid item xs={false} sm={1}/>
-        <Grid item xs={12} sm={5} align="center">
-            <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label" size='small'>Expiry</InputLabel>
+        <Grid item xs={12} sm={5} align='right'>
+          <FormControl fullWidth sx={{ pb: 8}}>
+            <InputLabel id="demo-simple-select-label2" size='small'>Item Category</InputLabel>
+            <Select
+                labelId="demo-simple-select-label2"
+                id="demo-simple-select2"
+                // value={age}
+                label="Item Category"
+                // onChange={handleChange}
+            >
+                <MenuItem value={10}>Fresh Produce</MenuItem>
+                <MenuItem value={20}>Dairy</MenuItem>
+                <MenuItem value={30}>Meat</MenuItem>
+                <MenuItem value={40}>Pantry</MenuItem>
+            </Select>
+            </FormControl>
+
+
+            <FormControl fullWidth sx={{ pb: 8}}>
+            <InputLabel id="demo-simple-select-label" size='small'>Expiry Category</InputLabel>
             <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 // value={age}
-                label="Expiry"
+                label="Expiry Category"
                 // onChange={handleChange}
             >
                 <MenuItem value={10}>Use By</MenuItem>
                 <MenuItem value={20}>Best Before</MenuItem>
             </Select>
             </FormControl>
+            <MaterialUIPickers/>
 
             
-
         </Grid>
+        {/* <Grid item xs={12} sm={5} align="center">
+          <MaterialUIPickers />
+        </Grid> */}
+
         <Grid item xs={false} sm={1} />
       </Grid>
     </Grid>

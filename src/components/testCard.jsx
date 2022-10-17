@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Avatar, IconButton, CardMedia } from "@material-ui/core";
 
+
 const TestCard = props => {
   const {title, imageUrl } = props;
   const myTheme = {
@@ -18,13 +19,13 @@ const TestCard = props => {
  }
 
   return (
-    <Card>
+    <Card elevation={12}>
       {/* <CardMedia style={{ height: "200px" }} image={imageUrl} /> */}
       {/* <Typography variant="h4" style={{ textAlign: 'center'}}>
         {title}
       </Typography> */}
       <CardHeader title={title} 
-    style={{ textAlign: 'center', backgroundColor: "#FFF5F1" }}/>
+    style={{ textAlign: 'center' }}/>
       <CardMedia style={myTheme.cardHeaderStylePref} image={imageUrl} />
       
     </Card>
