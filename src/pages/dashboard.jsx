@@ -30,48 +30,51 @@ function Dashboard() {
 
     var usernameURL = 
     // "https://ftd-server.herokuapp.com/user/getName";
-    "http://localhost:3012/user/getName";
+    "http://localhost:5000/user/getName";
 
     var shoppingListURL =
     // "https://ftd-server.herokuapp.com/item/shoppingList";
-    "http://localhost:3012/item/shoppingList";
+    "http://localhost:5000/item/shoppingList";
 
     var recentlyBoughtItemsURL =
     // "https://ftd-server.herokuapp.com/item/recentlyBought";
-    "http://localhost:3012/recentlyBought";
+    "http://localhost:5000/item/recentlyBought";
     
     var favouritesURL =
     // "https://ftd-server.herokuapp.com/item/favorites";
-    "http://localhost:3012/favorites";
+    "http://localhost:5000/item/favorites";
 
     const [shoppingList, setShoppingList] = useState([]);
     const [recentlyBoughtItems, setRecentlyBoughtItems] = useState([]);
     const [favourites, setFavourites] = useState([]);
     const [username, setUsername] = useState('');
 
-    axios
-        .get(shoppingListURL, {withCredentials:true})
-        .then((response) => {
-        setShoppingList(response.data)
-        })
+    useEffect(() => {
+        axios
+            .get(shoppingListURL, {withCredentials:true})
+            .then((response) => {
+            setShoppingList(response.data)
+            })
 
-    axios
-        .get(usernameURL, {withCredentials:true})
-        .then((response) => {
-        setUsername(response.data)
-        })
+        axios
+            .get(usernameURL, {withCredentials:true})
+            .then((response) => {
+            setUsername(response.data)
+            })
 
-    axios
-        .get(recentlyBoughtItemsURL, {withCredentials:true})
-        .then((response) => {
-        setRecentlyBoughtItems(response.data)
-        })
+        axios
+            .get(recentlyBoughtItemsURL, {withCredentials:true})
+            .then((response) => {
+            setRecentlyBoughtItems(response.data)
+            })
+        
+        axios
+            .get(favouritesURL, {withCredentials:true})
+            .then((response) => {
+            setFavourites(response.data)
+            })    
+    }, []);
     
-    axios
-        .get(favouritesURL, {withCredentials:true})
-        .then((response) => {
-        setFavourites(response.data)
-        })    
 
     return (
         <div>

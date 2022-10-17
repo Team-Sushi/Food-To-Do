@@ -4,7 +4,6 @@ import Navbar from "../components/navbar";
 import './navbar.css';
 import '../pages/AddItemPage.css';
 import { useState } from "react";
-import axios from "axios";
 
 function AddItemRequest() {
 
