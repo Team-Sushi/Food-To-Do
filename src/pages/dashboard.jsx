@@ -5,12 +5,11 @@ import DashboardHeader from '../components/DashboardHeader';
 import Navbar from '../components/navbar';
 import '../components/navbar.css';
 import '../pages/dashboard-final.css';
-import UserProfileBtn from '../components/UserProfileBtn';
+
+import UserProfileHeader from '../components/UserProfileHeader';
+
 import DashboardCarousel from '../components/DashboardCarousel';
 import { useState } from 'react'
-import { recentlyPurchasedItems } from '../components/RecentlyPurchasedData';
-import { favItems } from '../components/FavouritesData';
-import { nextShopItems } from '../components/NextShopListData';
 import DashboardCarouselHeader from '../components/DashboardCarouselHeader';
 import DashboardCarouselHeaderEmpty from '../components/DashboardCarouselHeaderEmpty';
 import { useNavigate } from "react-router-dom";
@@ -29,33 +28,64 @@ function Dashboard() {
       }, []);
     
 
+    var shoppingListURL =
+    "https://ftd-server.herokuapp.com/item";
+    var recentlyBoughtItemsURL =
+    "https://ftd-server.herokuapp.com/item/recentlyBoughtItem";
+    var favouritesURL =
+    "https://ftd-server.herokuapp.com/item/favourites";
+
+    const [shoppingList, setShoppingList] = useState('')
+    const [recentlyBoughtItems, setRecentlyBoughtItems] = useState('');
+    const [favourites, setFavourites] = useState('');
+
+    axios
+        .get(shoppingListURL, {withCredentials:true})
+        .then((response) => {
+            console.log(response.data)
+        setShoppingList(response.data)
+        })
+
+    axios
+        .get(recentlyBoughtItemsURL, {withCredentials:true})
+        .then((response) => {
+        setRecentlyBoughtItems(response.data)
+        })
+    
+    axios
+        .get(favouritesURL, {withCredentials:true})
+        .then((response) => {
+        setFavourites(response.data)
+        })
+    
+
     return (
         <div>
             <Navbar />
             <div className='dashboard-page-background'>
-                <UserProfileBtn />
+                <UserProfileHeader />
                 <DashboardHeader />
-
-                {nextShopItems.length > 0 ? (
+                
+                {shoppingList.length > 0 ? (
                     <div>
                         <DashboardCarouselHeader ListName={'Next Shopping List'}/>
-                        <DashboardCarousel UserItems={nextShopItems} ListName={'Next Shopping List'}/>
+                        <DashboardCarousel UserItems={shoppingList} ListName={'Next Shopping List'}/>
                     </div>
                 ) : <DashboardCarouselHeaderEmpty ListName={'Next Shopping List'}/>}
                 
-                {recentlyPurchasedItems.length > 0 ? (
+                {/* {recentlyBoughtItems.length > 0 ? (
                     <div>
                         <DashboardCarouselHeader ListName={'Recently Purchased'}/>
-                        <DashboardCarousel UserItems={recentlyPurchasedItems} ListName={'Recently Purchased'}/>
+                        <DashboardCarousel UserItems={recentlyBoughtItems} ListName={'Recently Purchased'}/>
                     </div>
                 ) : <DashboardCarouselHeaderEmpty ListName={'Recently Purchased'}/>}
                 
-                {favItems.length > 0 ? (
+                {favourites.length > 0 ? (
                     <div>
                         <DashboardCarouselHeader ListName={'Favourites'}/>
-                        <DashboardCarousel UserItems={favItems} ListName={'Favourites'}/>
+                        <DashboardCarousel UserItems={favourites} ListName={'Favourites'}/>
                     </div>
-                ) : <DashboardCarouselHeaderEmpty ListName={'Favourites'}/>}
+                ) : <DashboardCarouselHeaderEmpty ListName={'Favourites'}/>} */}
             </div>
 
             
