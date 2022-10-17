@@ -20,7 +20,7 @@ function AllItems() {
   }
 
   var allItemsURL = 
-    "http://localhost:3012/item"
+    "https://ftd-server.herokuapp.com/item"
     // "https://ftd-server.herokuapp.com/item";
 
   const [allItemList, setAllItemList] = useState([])
