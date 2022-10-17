@@ -12,6 +12,7 @@ import AddItemPage from './pages/AddItemPage';
 import RemoveItemPage from './pages/RemoveItemPage';
 import AllItems from './pages/allItems';
 import TestItem from './pages/testItem';
+import NextShop from './pages/nextShop';
 
 export default function App() {
   return (
@@ -26,13 +27,10 @@ export default function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="additem" element={<AddItemPage />} />
           <Route path="removeitem" element={<RemoveItemPage />} />
+          <Route path="nextshop" element={<NextShop />} />
 
           <Route path="allitems" element={<AllItems />} />
           <Route path="test-item" element={<TestItem />} />
-          
-          {/* for a 404 page
-          <Route path="*" element={<NoPage />} />
-          */}
 
         </Route>
       </Routes>

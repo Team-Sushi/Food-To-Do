@@ -1,14 +1,27 @@
 import React from 'react';
-// import "./nextShop.css";
-// import skipback from "./skip-back.png";
 import Navbar from '../components/navbar';
 import { Grid } from "@material-ui/core";
 import { IconButton } from '@mui/material';
 import Content from '../components/Content';
 import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import axios from 'axios';
+import { useState } from 'react';
 
-const NextShop = () => {
+function NextShop() {
+
+  var shoppingListURL =
+    // "https://ftd-server.herokuapp.com/item";
+    "http://localhost:3012/item/shoppingList";
+
+    const [shoppingList, setShoppingList] = useState([]);
+  
+    axios
+        .get(shoppingListURL, {withCredentials:true})
+        .then((response) => {
+        setShoppingList(response.data)
+        })
+
   return (
     <Grid container direction="column">
       <Grid item gutterBottom>
@@ -32,7 +45,7 @@ const NextShop = () => {
       <Grid item container>
         <Grid item xs={false} sm={2}/>
         <Grid item xs={12} sm={8}>
-          <Content />
+          <Content UserItemsList={shoppingList}/>
         </Grid>
         <Grid item xs={false} sm={2} />
       </Grid>

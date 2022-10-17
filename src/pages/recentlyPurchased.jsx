@@ -1,12 +1,12 @@
 import React from 'react';
-// import "./nextShop.css";
-// import skipback from "./skip-back.png";
 import Navbar from '../components/navbar';
 import { Grid } from "@material-ui/core";
 import { IconButton } from '@mui/material';
 import RecentlyPurContent from '../components/recentlyPurContent';
 import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+
+// import {Grid, Typography} from "@mui/material";
 
 const RecentlyPurchased = () => {
   return (

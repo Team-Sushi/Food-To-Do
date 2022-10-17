@@ -3,7 +3,6 @@ import Navbar from '../components/navbar';
 import { Grid } from "@material-ui/core";
 import { IconButton } from '@mui/material';
 import TestContent from '../components/testContent';
-import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
@@ -18,12 +17,14 @@ import { useState } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
+// import {Grid, Select} from "@mui/material"
 
-const TestItem = () => {
 
-  const [favourite, setFavourite] = useState(false)
-  const [cart, setCart] = useState(false)
-  const [recent, setRecent] = useState(false)
+const TestItem = ({itemName, favState, cartState, recentState}) => {
+
+  const [favourite, setFavourite] = useState(favState)
+  const [cart, setCart] = useState(cartState)
+  const [recent, setRecent] = useState(recentState)
 
   return (
     <Grid container direction="column">
@@ -48,7 +49,7 @@ const TestItem = () => {
       <Grid item container>
         <Grid item xs={false} sm={1}/>
         <Grid item xs={12} sm={4} align="center">
-            <TestContent />
+            <TestContent itemname={"Banana Cavendish"} itemimageURL={"https://cdn0.woolworths.media/content/wowproductimages/large/133211.jpg"}/>
               <IconButton aria-label='empty-heart' onClick={()=>setFavourite(!favourite)}>
 
                 {favourite ? <FavoriteIcon sx={{fontSize: 50}}/> : <FavoriteBorderIcon sx={{ fontSize: 50}}/>}
@@ -111,5 +112,11 @@ const TestItem = () => {
     </Grid>
   );
 };
+
+TestItem.defaultProps = {
+  favState: false,
+  cartState: false,
+  recentState: false,
+}
 
 export default TestItem;

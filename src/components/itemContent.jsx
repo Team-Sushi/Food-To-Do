@@ -1,10 +1,12 @@
 import React from "react";
 import CoffeCard from "./CoffeCard";
-import { CardActionArea, CardContent, Grid, Typography } from "@material-ui/core";
+// import { CardActionArea, CardContent, Grid, Typography } from "@material-ui/core";
 
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import {CardMedia} from "@material-ui/core";
+// import {Card} from "@mui/material"
+// import CardHeader from "@material-ui/core/CardHeader";
+// import {CardMedia} from "@material-ui/core";
+
+import {Card, CardMedia, CardActionArea, CardContent, Grid, Typography} from "@mui/material";
 
 // To show the items in the database such as all-items, categorized items etc. -> not user based
 
@@ -17,13 +19,13 @@ const ItemContent = ({allItems}) => {
      }
   }
 
-  const getItemCard = item => {
-    return (
-      <Grid item xs={12} sm={3}>
-        <CoffeCard {...item} />
-      </Grid>
-    );
-  };
+  // const getItemCard = item => {
+  //   return (
+  //     <Grid item xs={12} sm={3}>
+  //       <CoffeCard {...item} />
+  //     </Grid>
+  //   );
+  // };
 
   // console.log(ItemArray)
 

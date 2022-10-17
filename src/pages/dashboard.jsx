@@ -16,9 +16,10 @@ import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
     const navigate = useNavigate();
+    
     useEffect(() => {
         async function useAuth() {
-          await axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
+          await axios.get('http://localhost:3012/user/protected', { withCredentials: true }).then((res) => {
             if (res.data === false) {
               navigate("/login");
             }
@@ -26,24 +27,35 @@ function Dashboard() {
         }
         useAuth();
       }, []);
-    
+
+    var usernameURL = 
+    "http://localhost:3012/user/getName";
 
     var shoppingListURL =
     // "https://ftd-server.herokuapp.com/item";
-    "http://localhost:3012/item"
-    var recentlyBoughtItemsURL =
-    "https://ftd-server.herokuapp.com/item/recentlyBoughtItem";
-    var favouritesURL =
-    "https://ftd-server.herokuapp.com/item/favourites";
+    "http://localhost:3012/item/shoppingList";
 
-    const [shoppingList, setShoppingList] = useState([])
+    var recentlyBoughtItemsURL =
+    "http://localhost:3012/item";
+    
+    var favouritesURL =
+    "http://localhost:3012/item";
+
+    const [shoppingList, setShoppingList] = useState([]);
     const [recentlyBoughtItems, setRecentlyBoughtItems] = useState([]);
     const [favourites, setFavourites] = useState([]);
+    const [username, setUsername] = useState('');
 
     axios
         .get(shoppingListURL, {withCredentials:true})
         .then((response) => {
         setShoppingList(response.data)
+        })
+
+    axios
+        .get(usernameURL, {withCredentials:true})
+        .then((response) => {
+        setUsername(response.data)
         })
 
     axios
@@ -62,7 +74,7 @@ function Dashboard() {
         <div>
             <Navbar />
             <div className='dashboard-page-background'>
-                <UserProfileHeader />
+                <UserProfileHeader username={username}/>
                 <DashboardHeader />
                 
                 {shoppingList.length > 0 ? (
@@ -72,7 +84,7 @@ function Dashboard() {
                     </div>
                 ) : <DashboardCarouselHeaderEmpty ListName={'Next Shopping List'}/>}
                 
-                {/* {recentlyBoughtItems.length > 0 ? (
+                {recentlyBoughtItems.length > 0 ? (
                     <div>
                         <DashboardCarouselHeader ListName={'Recently Purchased'}/>
                         <DashboardCarousel UserItems={recentlyBoughtItems} ListName={'Recently Purchased'}/>
@@ -84,7 +96,7 @@ function Dashboard() {
                         <DashboardCarouselHeader ListName={'Favourites'}/>
                         <DashboardCarousel UserItems={favourites} ListName={'Favourites'}/>
                     </div>
-                ) : <DashboardCarouselHeaderEmpty ListName={'Favourites'}/>} */}
+                ) : <DashboardCarouselHeaderEmpty ListName={'Favourites'}/>}
             </div>
 
             

@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import Navbar from "../components/navbar";
 import './navbar.css';
 import '../pages/AddItemPage.css';
@@ -65,8 +66,8 @@ function AddItemRequest() {
                             {/* <i className="material-symbols-outlined">lock</i> */}
                             External URL
                         </label>
-                        <input type="external-url" name="external-url" value={itemImageURL} 
-                        onChange={(e) => setItemImageURL(e.target.value)}/>
+                        <input type="external-url" name="external-url" value={itemURL} 
+                        onChange={(e) => setItemURL(e.target.value)}/>
                     </span>
 
                     <span className="add-item-form-fields">

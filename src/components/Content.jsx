@@ -1,6 +1,8 @@
 import React from "react";
 import CoffeCard from "./CoffeCard";
-import { Grid } from "@material-ui/core";
+// import { Grid } from "@material-ui/core";
+
+import { Grid } from "@mui/material";
 
 // Next shop, recently purchased, favourites -> pages that are tailored to the user
 
