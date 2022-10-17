@@ -2,8 +2,27 @@ import React from "react";
 import Navbar from "../components/navbar";
 import './navbar.css';
 import '../pages/AddItemPage.css';
+import { useState } from "react";
 
 function AddItemRequest() {
+
+    const [itemName, setItemName] = useState('')
+    const [itemImageURL, setItemImageURL] = useState('')
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        if(!itemName) {
+            alert("Please add a valid request.")
+            return
+        } else {
+            alert("Add request success. Request to add item: " +{itemName}+".")
+
+            setItemName('')
+            setItemImageURL('')
+        }
+
+    }
 
     return (
         <div>
@@ -15,13 +34,14 @@ function AddItemRequest() {
                         <a href="/removeitem">Remove Request</a>                    
                     </button>
                 </div>
-                <form action="add-request" method="POST" className="add-item-form">
+                <form action="add-request" method="POST" className="add-item-form" onSubmit={onSubmit}>
                     <span className="add-item-form-fields">
                         <label for="item-name">
                             {/* <i className="material-symbols-outlined">item</i> */}
                             Item Name
                         </label>
-                        <input type="item-name" name="item-name" />
+                        <input type="item-name" name="item-name" value={itemName} 
+                        onChange={(e) => setItemName(e.target.value)} />
                     </span>
 
                     <span className="add-item-form-fields">
@@ -29,7 +49,8 @@ function AddItemRequest() {
                             {/* <i className="material-symbols-outlined">lock</i> */}
                             External URL
                         </label>
-                        <input type="external-url" name="external-url" />
+                        <input type="external-url" name="external-url" value={itemImageURL} 
+                        onChange={(e) => setItemImageURL(e.target.value)}/>
                     </span>
 
                     <span className="add-item-form-fields">

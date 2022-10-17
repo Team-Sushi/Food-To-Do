@@ -36,9 +36,9 @@ function Dashboard() {
     var favouritesURL =
     "https://ftd-server.herokuapp.com/item/favourites";
 
-    const [shoppingList, setShoppingList] = useState('')
-    const [recentlyBoughtItems, setRecentlyBoughtItems] = useState('');
-    const [favourites, setFavourites] = useState('');
+    const [shoppingList, setShoppingList] = useState([])
+    const [recentlyBoughtItems, setRecentlyBoughtItems] = useState([]);
+    const [favourites, setFavourites] = useState([]);
 
     axios
         .get(shoppingListURL, {withCredentials:true})
@@ -56,8 +56,7 @@ function Dashboard() {
         .get(favouritesURL, {withCredentials:true})
         .then((response) => {
         setFavourites(response.data)
-        })
-    
+        })    
 
     return (
         <div>
