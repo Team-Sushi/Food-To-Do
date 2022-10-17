@@ -11,7 +11,7 @@ import { useState } from 'react';
 function Favorites() {
 
   var favoritesURL =
-    "https://ftd-server.herokuapp.com/item/favorites";
+    "/item/favorites";
     // "http://localhost:3012/item/shoppingList";
 
     const [favorites, setFavorites] = useState([]);
