@@ -9,8 +9,8 @@ function AddItemRequest() {
 
     const [itemName, setItemName] = useState('');
     const [itemURL, setItemURL] = useState('');
-    const [category, setCategory] = useState('');
-    const [reason, setReason] = useState('');
+    const [category, setCategory] = useState('Fresh Produce');
+    const [reason, setReason] = useState('Item not listed');
 
     const onSubmit = (e) => {
         if (!itemName) {
@@ -19,7 +19,7 @@ function AddItemRequest() {
         } else {
             e.preventDefault();
             axios
-                .post('https://ftd-server.herokuapp.com/item/addItem', {
+                .post('http://localhost:5000/item/requestAdd', {
                     itemName: itemName,
                     itemURL: itemURL,
                     category: category,
@@ -31,8 +31,6 @@ function AddItemRequest() {
                     alert(`Add request success. Request to add: ${itemName}.`)
                     setItemName('');
                     setItemURL('');
-                    setCategory('');
-                    setReason('');
                 })
                 .catch((err) => {
                     console.log(err);
@@ -75,12 +73,12 @@ function AddItemRequest() {
                             {/* <i className="material-symbols-outlined">lock</i> */}
                             Product Category
                         </label>
-                        <select id="product-category" name="product-category" onChange={(e) => setCategory(e.target.textContent)}>
-                            <option value="fresh-produce">Fresh Produce</option>
-                            <option value="dairy">Dairy</option>
-                            <option value="meat-and-poultry">Meat & Poultry</option>
-                            <option value="pantry">Pantry</option>
-                            <option value="alcohol">Alcohol</option>
+                        <select id="product-category" name="product-category" onChange={(e) => setCategory(e.target.value)}>
+                            <option value="Fresh Produce">Fresh Produce</option>
+                            <option value="Dairy">Dairy</option>
+                            <option value="Meat & Poultry">Meat & Poultry</option>
+                            <option value="Pantry">Pantry</option>
+                            <option value="Alcohol">Alcohol</option>
                         </select>
                     </span>
 
@@ -89,11 +87,11 @@ function AddItemRequest() {
                             {/* <i className="material-symbols-outlined">lock</i> */}
                             Reason
                         </label>
-                        <select id="product-category" name="product-category" onChange={(e) => setReason(e.target.textContent)}>
-                            <option value="1">Item not listed</option>
-                            <option value="2">Different brand</option>
-                            <option value="3">Different size</option>
-                            <option value="4">Other</option>
+                        <select id="product-category" name="product-category" onChange={(e) => setReason(e.target.value)}>
+                            <option value="Item not listed">Item not listed</option>
+                            <option value="Different brand">Different brand</option>
+                            <option value="Different size">Different size</option>
+                            <option value="Other">Other</option>
                         </select>
                     </span>
                     

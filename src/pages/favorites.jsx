@@ -1,34 +1,25 @@
 import React from 'react';
-import { useState } from 'react';
-import axios from 'axios';
 import Navbar from '../components/navbar';
-// import { Grid } from "@material-ui/core";
-import {Grid} from '@mui/material';
+import { Grid } from "@material-ui/core";
 import { IconButton } from '@mui/material';
-import ItemContent from '../components/itemContent';
-import {Typography} from '@mui/material';
-// import Typography from "@material-ui/core/Typography";
+import Content from '../components/Content';
+import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import axios from 'axios';
+import { useState } from 'react';
 
-function AllItems() {
+function Favorites() {
 
-  const myTheme = {
-    cardHeaderStylePref:{
-       height: 200,
-       padding: 20
-     }
-  }
+  var favoritesURL =
+    "https://ftd-server.herokuapp.com/item/favorites";
+    // "http://localhost:3012/item/shoppingList";
 
-  var allItemsURL = 
-    "http://localhost:3012/item"
-    // "https://ftd-server.herokuapp.com/item";
-
-  const [allItemList, setAllItemList] = useState([])
-
-  axios
-        .get(allItemsURL, {withCredentials:true})
+    const [favorites, setFavorites] = useState([]);
+  
+    axios
+        .get(favoritesURL, {withCredentials:true})
         .then((response) => {
-          setAllItemList(response.data)
+        setFavorites(response.data)
         })
 
   return (
@@ -44,21 +35,19 @@ function AllItems() {
       
       <Grid item>
         <Typography variant='h3' component="h3" gutterBottom>
-          All Items
-        </Typography>        
+          Favorites
+        </Typography>
       </Grid>
 
     </Grid>
       
       
       <Grid item container>
-        <Grid item xs={false} sm={1}/>
-        <Grid item xs={12} sm={10}>
-
-          <ItemContent allItems={allItemList} />
-
+        <Grid item xs={false} sm={2}/>
+        <Grid item xs={12} sm={8}>
+          <Content UserItemsList={favorites}/>
         </Grid>
-        <Grid item xs={false} sm={1} />
+        <Grid item xs={false} sm={2} />
       </Grid>
 
       {/* <Grid container direction='row' justifyContent='center' sx={{pt: 2}}>
@@ -70,4 +59,4 @@ function AllItems() {
   );
 };
 
-export default AllItems;
+export default Favorites;

@@ -16,9 +16,44 @@ import MaterialUIPickers from '../components/calendar';
 import { useState } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import axios from 'axios';
 
 
-const TestItem = ({itemName, favState, cartState, recentState}) => {
+function TestItem ({favState, cartState, recentState}) {
+  
+  const allItemsURL = "https://foodtodo.herokuapp/item";
+  const [items, setItems] = useState([]);
+
+  axios
+        .get(allItemsURL, {withCredentials:true})
+        .then((response) => {
+          setItems(response.data)
+        })
+
+//   function handleAdd(e) {
+//     e.preventDefault();
+//     axios
+//         .post('https://ftd-server.herokuapp.com/item/addItem', {
+//             itemID: itemID,
+//             quantity: 1,
+//             expiryType: "",
+//             expiryDate: Date,
+//         }, {
+//             withCredentials: true
+//         })
+//         .then((response) => {
+//           console.log(response.status);
+//           console.log(response.data);
+//           alert(`Remove request success. Request to remove: ${itemName}.`)
+//           setItemName('');
+//           setItemURL('');
+//           setReason('');
+//       })
+//       .catch((err) => {
+//           console.log(err);
+//           alert(`Something is wrong. Please try again later.`);
+//       })
+// }
 
   const [favourite, setFavourite] = useState(favState)
   const [cart, setCart] = useState(cartState)
@@ -41,7 +76,7 @@ const TestItem = ({itemName, favState, cartState, recentState}) => {
       <Grid item container>
         <Grid item xs={false} sm={1}/>
         <Grid item xs={12} sm={4} align="center">
-            <TestContent itemname={"Banana Cavendish"} itemimageURL={"https://cdn0.woolworths.media/content/wowproductimages/large/133211.jpg"}/>
+            <TestContent item={items[0]}/>
               <IconButton aria-label='empty-heart' onClick={()=>setFavourite(!favourite)}>
 
                 {favourite ? <FavoriteIcon sx={{fontSize: 50}}/> : <FavoriteBorderIcon sx={{ fontSize: 50}}/>}
@@ -51,6 +86,7 @@ const TestItem = ({itemName, favState, cartState, recentState}) => {
             <IconButton aria-label='add-cart' onClick={()=>setCart(!cart)}>
 
               {cart ? <RemoveShoppingCartIcon sx={{fontSize: 50}}/> : <AddShoppingCartIcon sx={{ fontSize: 50}}/>}
+
 
             </IconButton>
             <IconButton aria-label='recents' onClick={()=>setRecent(!recent)}>
@@ -87,8 +123,9 @@ const TestItem = ({itemName, favState, cartState, recentState}) => {
                 label="Expiry Category"
                 // onChange={handleChange}
             >
-                <MenuItem value={10}>Use By</MenuItem>
-                <MenuItem value={20}>Best Before</MenuItem>
+                <MenuItem value={"Use by"}>Use By</MenuItem>
+                <MenuItem value={"Best before"}>Best Before</MenuItem>
+                <MenuItem value={"Not available"}>Not available</MenuItem>
             </Select>
             </FormControl>
             <MaterialUIPickers/>

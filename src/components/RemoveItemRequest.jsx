@@ -9,7 +9,7 @@ function RemoveItemRequest() {
 
     const [itemName, setItemName] = useState('');
     const [itemURL, setItemURL] = useState('');
-    const [reason, setReason] = useState('');
+    const [reason, setReason] = useState('Wrong details');
 
     const onSubmit = (e) => {
         if (!itemName) {
@@ -18,7 +18,7 @@ function RemoveItemRequest() {
         } else {
             e.preventDefault();
             axios
-                .post('https://ftd-server.herokuapp.com/item/removeItem', {
+                .post('http://localhost:5000/item/requestRemove', {
                     itemName: itemName,
                     itemURL: itemURL,
                     reason: reason
@@ -29,7 +29,6 @@ function RemoveItemRequest() {
                     alert(`Remove request success. Request to remove: ${itemName}.`)
                     setItemName('');
                     setItemURL('');
-                    setReason('');
                 })
                 .catch((err) => {
                     console.log(err);
@@ -71,10 +70,10 @@ function RemoveItemRequest() {
                         {/* <i className="material-symbols-outlined">lock</i> */}
                         Reason
                     </label>
-                    <select id="product-category" name="product-category" onChange={(e) => setReason(e.target.textContent)}>
-                        <option value="1">Wrong details</option>
-                        <option value="2">Item is discontinued</option>
-                        <option value="3">Other</option>
+                    <select id="product-category" name="product-category" onChange={(e) => setReason(e.target.value)}>
+                        <option value="Wrong details">Wrong details</option>
+                        <option value="Item is discontinued">Item is discontinued</option>
+                        <option value="Other">Other</option>
                     </select>
                 </span>
 
