@@ -11,8 +11,8 @@ import { useState } from 'react';
 function NextShop() {
 
   var shoppingListURL =
-    "https://ftd-server.herokuapp.com/item/shoppingList";
-    // "http://localhost:3012/item/shoppingList";
+    // "https://ftd-server.herokuapp.com/item/shoppingList";
+    "http://localhost:3012/item/shoppingList";
 
     const [shoppingList, setShoppingList] = useState([]);
   

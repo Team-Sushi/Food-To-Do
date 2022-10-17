@@ -13,6 +13,8 @@ import RemoveItemPage from './pages/RemoveItemPage';
 import AllItems from './pages/allItems';
 import TestItem from './pages/testItem';
 import NextShop from './pages/nextShop';
+import RecentlyPurchased from './pages/recentlyPurchased';
+import Favorites from './pages/favorites';
 
 export default function App() {
   return (
@@ -28,9 +30,13 @@ export default function App() {
           <Route path="additem" element={<AddItemPage />} />
           <Route path="removeitem" element={<RemoveItemPage />} />
           <Route path="nextshop" element={<NextShop />} />
-
+          <Route path="recentlypurchased" element={<RecentlyPurchased />} />
+          <Route path="favourites" element={<Favorites />} />
           <Route path="allitems" element={<AllItems />} />
+
           <Route path="test-item" element={<TestItem />} />
+
+          <Route path="/item/:id" element={<TestItem />} />
 
         </Route>
       </Routes>

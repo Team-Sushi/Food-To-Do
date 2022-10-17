@@ -24,7 +24,7 @@ const ItemContent = ({allItems}) => {
     <Grid container spacing={4}>
       {allItems.map((item) => (
         <Grid item xs={12} sm={3}>
-          <CardActionArea href={`/${item.itemName}`}>
+          <CardActionArea href={`/item/${item._id}`}>
             <Card>
               <CardMedia style={myTheme.cardHeaderStylePref} image={item.itemImageURL} />
               {/* <CardHeader title={item.itemName} variant="h8" noWrap

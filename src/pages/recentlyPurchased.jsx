@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import { useState } from 'react';
 import Navbar from '../components/navbar';
 import { Grid } from "@material-ui/core";
 import { IconButton } from '@mui/material';
@@ -11,8 +13,8 @@ import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 const RecentlyPurchased = () => {
 
   var recentlyBoughtURL =
-  "https://ftd-server.herokuapp.com/item/recentlyBought";
-  // "http://localhost:3012/item/recentlyBought";
+  // "https://ftd-server.herokuapp.com/item/recentlyBought";
+  "http://localhost:3012/item/recentlyBought";
 
   const [recentlyBought, setRecentlyBought] = useState([]);
 
@@ -45,7 +47,7 @@ const RecentlyPurchased = () => {
       <Grid item container>
         <Grid item xs={false} sm={2}/>
         <Grid item xs={12} sm={8}>
-          <RecentlyPurContent />
+          <RecentlyPurContent recentlyPurchasedItems={recentlyBought}/>
         </Grid>
         <Grid item xs={false} sm={2} />
       </Grid>

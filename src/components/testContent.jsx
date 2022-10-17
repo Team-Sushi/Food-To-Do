@@ -6,9 +6,10 @@ import { Grid } from "@material-ui/core";
 // import {Grid} from "@mui/material";
 
 
-const TestContent = ({itemname, itemimageURL}) => {
+const TestContent = ({item}) => {
 
-  const testList = [{itemName: itemname, itemImageURL: itemimageURL}];
+  // const testList = [{itemName: itemname, itemImageURL: itemimageURL}];
+  const testList = [item]
 
   const getTestCard = testObj => {
     return (
