@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         async function useAuth() {
           await axios.get('http://localhost:3012/user/protected', { withCredentials: true }).then((res) => {
@@ -29,17 +29,20 @@ function Dashboard() {
       }, []);
 
     var usernameURL = 
-    "http://localhost:3012/user/getName";
+    "https://ftd-server.herokuapp.com/user/getName";
+    // "http://localhost:3012/user/getName";
 
     var shoppingListURL =
-    // "https://ftd-server.herokuapp.com/item";
-    "http://localhost:3012/item/shoppingList";
+    "https://ftd-server.herokuapp.com/item/shoppingList";
+    // "http://localhost:3012/item/shoppingList";
 
     var recentlyBoughtItemsURL =
-    "http://localhost:3012/item";
+    "https://ftd-server.herokuapp.com/item/recentlyBought";
+    // "http://localhost:3012/recentlyBought";
     
     var favouritesURL =
-    "http://localhost:3012/item";
+    "https://ftd-server.herokuapp.com/item/favorites";
+    // "http://localhost:3012/favorites";
 
     const [shoppingList, setShoppingList] = useState([]);
     const [recentlyBoughtItems, setRecentlyBoughtItems] = useState([]);

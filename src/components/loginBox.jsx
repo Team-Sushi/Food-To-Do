@@ -20,7 +20,7 @@ function LoginBox() {
     function handleSubmit(e) {
         e.preventDefault();
         axios
-            .post('http://localhost:3012/user/login', {
+            .post('https://ftd-server.herokuapp.com/user/login', {
                 email: email,
                 password: password
             }, {

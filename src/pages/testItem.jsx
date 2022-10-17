@@ -36,12 +36,6 @@ const TestItem = ({itemName, favState, cartState, recentState}) => {
       <IconButton aria-label='skip-back' href='/dashboard'>
         <SkipPreviousIcon sx={{ fontSize: 50}}/>
       </IconButton>
-      
-      {/* <Grid item>
-        <Typography variant='h3' component="h3" gutterBottom>
-          Next Shopping List
-        </Typography>
-      </Grid> */}
 
     </Grid>
       

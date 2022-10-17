@@ -9,6 +9,19 @@ import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 // import {Grid, Typography} from "@mui/material";
 
 const RecentlyPurchased = () => {
+
+  var recentlyBoughtURL =
+  "https://ftd-server.herokuapp.com/item/recentlyBought";
+  // "http://localhost:3012/item/recentlyBought";
+
+  const [recentlyBought, setRecentlyBought] = useState([]);
+
+  axios
+      .get(recentlyBoughtURL, {withCredentials:true})
+      .then((response) => {
+      setRecentlyBought(response.data)
+      })
+  
   return (
     <Grid container direction="column">
       <Grid item gutterBottom>

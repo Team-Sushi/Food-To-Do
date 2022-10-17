@@ -19,22 +19,12 @@ const ItemContent = ({allItems}) => {
      }
   }
 
-  // const getItemCard = item => {
-  //   return (
-  //     <Grid item xs={12} sm={3}>
-  //       <CoffeCard {...item} />
-  //     </Grid>
-  //   );
-  // };
-
-  // console.log(ItemArray)
-
   return (
 
     <Grid container spacing={4}>
       {allItems.map((item) => (
         <Grid item xs={12} sm={3}>
-          <CardActionArea href="">
+          <CardActionArea href={`/${item.itemName}`}>
             <Card>
               <CardMedia style={myTheme.cardHeaderStylePref} image={item.itemImageURL} />
               {/* <CardHeader title={item.itemName} variant="h8" noWrap
