@@ -9,20 +9,22 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import Button from '@material-ui/core/Button';
-import SellIcon from '@mui/icons-material/Sell';
-import DateRangeIcon from '@mui/icons-material/DateRange';
-import TagSharpIcon from '@mui/icons-material/TagSharp';
 import Select from '@material-ui/core/Select';
 import { FormControl } from '@mui/material';
 import { InputLabel } from '@mui/material';
 import { MenuItem } from '@mui/material';
 import MaterialUIPickers from '../components/calendar';
+import { useState } from 'react';
+import HomeIcon from '@mui/icons-material/Home';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 
 const TestItem = () => {
+
+  const [favourite, setFavourite] = useState(false)
+  const [cart, setCart] = useState(false)
+  const [recent, setRecent] = useState(false)
+
   return (
     <Grid container direction="column">
       <Grid item gutterBottom>
@@ -47,15 +49,22 @@ const TestItem = () => {
         <Grid item xs={false} sm={1}/>
         <Grid item xs={12} sm={4} align="center">
             <TestContent />
-            <IconButton aria-label='empty-heart'>
-                <FavoriteBorderIcon sx={{ fontSize: 50}}/>
+              <IconButton aria-label='empty-heart' onClick={()=>setFavourite(!favourite)}>
+
+                {favourite ? <FavoriteIcon sx={{fontSize: 50}}/> : <FavoriteBorderIcon sx={{ fontSize: 50}}/>}
+                
+              </IconButton>
+            
+            <IconButton aria-label='add-cart' onClick={()=>setCart(!cart)}>
+
+              {cart ? <RemoveShoppingCartIcon sx={{fontSize: 50}}/> : <AddShoppingCartIcon sx={{ fontSize: 50}}/>}
+
             </IconButton>
-            <IconButton aria-label='add-cart'>
-                <AddShoppingCartIcon sx={{ fontSize: 50}}/>
+            <IconButton aria-label='recents' onClick={()=>setRecent(!recent)}>
+
+              {recent ? <HomeIcon sx={{fontSize: 50}}/> : <HomeOutlinedIcon sx={{ fontSize: 50}}/>}
+
             </IconButton>
-            <Button variant="contained" startIcon={<AddCircleIcon />}>
-                Recently Purchased
-            </Button>
         </Grid>
         <Grid item xs={false} sm={1}/>
         <Grid item xs={12} sm={5} align='right'>
