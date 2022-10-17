@@ -3,6 +3,8 @@ import {useEffect} from 'react';
 import SignUpBox from '../components/signUpBox';
 import './loginSignUp.css';
 import '../components/navbar.css'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Signup() {
   useEffect(() => {
@@ -14,6 +16,18 @@ function Signup() {
     };
 
   }, []);
+
+  const navigate = useNavigate();
+    useEffect(() => {
+        async function useAuth() {
+          await axios.get('http://localhost:5000/user/protected', { withCredentials: true }).then((res) => {
+            if (res.data === true) {
+              navigate("/dashboard");
+            }
+          })  
+        }
+        useAuth();
+      }, []);
 
   return (
     <div>

@@ -49,29 +49,32 @@ function Dashboard() {
     const [favourites, setFavourites] = useState([]);
     const [username, setUsername] = useState('');
 
-    axios
-        .get(shoppingListURL, {withCredentials:true})
-        .then((response) => {
-        setShoppingList(response.data)
-        })
+    useEffect(() => {
+        axios
+            .get(shoppingListURL, {withCredentials:true})
+            .then((response) => {
+            setShoppingList(response.data)
+            })
 
-    axios
-        .get(usernameURL, {withCredentials:true})
-        .then((response) => {
-        setUsername(response.data)
-        })
+        axios
+            .get(usernameURL, {withCredentials:true})
+            .then((response) => {
+            setUsername(response.data)
+            })
 
-    axios
-        .get(recentlyBoughtItemsURL, {withCredentials:true})
-        .then((response) => {
-        setRecentlyBoughtItems(response.data)
-        })
+        axios
+            .get(recentlyBoughtItemsURL, {withCredentials:true})
+            .then((response) => {
+            setRecentlyBoughtItems(response.data)
+            })
+        
+        axios
+            .get(favouritesURL, {withCredentials:true})
+            .then((response) => {
+            setFavourites(response.data)
+            })    
+    }, []);
     
-    axios
-        .get(favouritesURL, {withCredentials:true})
-        .then((response) => {
-        setFavourites(response.data)
-        })    
 
     return (
         <div>

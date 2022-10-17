@@ -5,6 +5,8 @@ import { AppBar, Avatar, Toolbar, Typography } from "@material-ui/core";
 import Box from '@mui/material/Box';
 import { makeStyles } from "@material-ui/styles";
 import Button from "@mui/material/Button";
+import { maxWidth } from "@mui/system";
+import axios from "axios";
 
 // import { AppBar, Avatar, Toolbar, Typography } from "@mui/material";
 // import { makeStyles } from "@mui/material/styles";
@@ -24,6 +26,23 @@ const useStyles = makeStyles(() => ({
     }
   }
 }));
+
+function onLogout(e) {
+  e.preventDefault();
+  axios
+      .post('http://localhost:5000/user/logout', {}, {
+          withCredentials: true
+      })
+      .then((response) => {
+          if (response) {
+              console.log(response);
+              alert(`You've logged out successfully!`);
+          }
+      })
+      .catch((err) => {
+          console.log(err);
+      })
+}
 
 const UserProfileHeader = ({ username, userPhotoLink }) => {
   const classes = useStyles();
@@ -49,7 +68,7 @@ const UserProfileHeader = ({ username, userPhotoLink }) => {
         <Typography className={classes.typographyStyles} style={{fontSize: '1.1rem', color: 'black'}}>
             Welcome back, {username}!
             <br/>
-            <Button href="/" style={{color: "black"}}>
+            <Button style={{color: "black"}} onClick={onLogout}>
                 <FiLogOut style={{paddingRight: "5px"}}/>
                 Logout
             </Button>
