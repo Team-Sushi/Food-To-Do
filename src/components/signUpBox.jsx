@@ -28,7 +28,7 @@ function SignUpBox() {
     function handleSubmit(e) {
         e.preventDefault();
         axios
-            .post('https://ftd-server.herokuapp.com/user/register', {
+            .post('https://localhost:5000/user/register', {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,

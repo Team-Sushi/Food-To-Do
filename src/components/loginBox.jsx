@@ -3,8 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function LoginBox() {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -20,7 +18,7 @@ function LoginBox() {
     function handleSubmit(e) {
         e.preventDefault();
         axios
-            .post('https://ftd-server.herokuapp.com/user/login', {
+            .post('http://localhost:5000/user/login', {
                 email: email,
                 password: password
             }, {
