@@ -6,22 +6,35 @@ import { useState } from "react";
 
 function RemoveItemRequest() {
 
-    const [itemName, setItemName] = useState('')
-    const [itemImageURL, setItemImageURL] = useState('')
+    const [itemName, setItemName] = useState('');
+    const [itemURL, setItemURL] = useState('');
+    const [reason, setReason] = useState('');
 
     const onSubmit = (e) => {
-        e.preventDefault()
-
-        if(!itemName) {
-            alert("Please insert a valid remove request.")
+        if (!itemName) {
+            alert("Please insert a valid item name.");
             return
         } else {
-            alert("Remove request success. Request to remove: "+{itemName}+".")
-
-            setItemName('')
-            setItemImageURL('')
+            e.preventDefault();
+            axios
+                .post('https://ftd-server.herokuapp.com/item/removeItem', {
+                    itemName: itemName,
+                    itemURL: itemURL,
+                    reason: reason
+                })
+                .then((response) => {
+                    console.log(response.status);
+                    console.log(response.data);
+                    alert(`Remove request success. Request to remove: ${itemName}.`)
+                    setItemName('');
+                    setItemURL('');
+                    setReason('');
+                })
+                .catch((err) => {
+                    console.log(err);
+                    alert(`Something is wrong. Please try again later.`);
+                })
         }
-
     }
 
     return (
@@ -33,7 +46,7 @@ function RemoveItemRequest() {
                     <a href="/removeitem" style={{ fontWeight: "bold", textDecoration: "underline" }}>Remove Request</a>
                 </button>
             </div>
-            <form action="signup" method="POST" className="add-item-form" onSubmit={onSubmit}>
+            <form className="add-item-form" onSubmit={onSubmit}>
                 <span className="add-item-form-fields">
                     <label for="item-name">
                         {/* <i className="material-symbols-outlined">person</i> */}
@@ -49,7 +62,7 @@ function RemoveItemRequest() {
                         Item URL
                     </label>
                     <input type="text" name="itemURL" value={itemImageURL} 
-                        onChange={(e) => setItemImageURL(e.target.value)}/>
+                        onChange={(e) => setItemURL(e.target.value)}/>
                 </span>
 
                 <span className="add-item-form-fields">
@@ -57,9 +70,10 @@ function RemoveItemRequest() {
                         {/* <i className="material-symbols-outlined">lock</i> */}
                         Reason
                     </label>
-                    <select id="product-category" name="product-category">
-                        <option value="item-discontinued">Item discontinued</option>
-                        <option value="other">Other</option>
+                    <select id="product-category" name="product-category" onChange={(e) => setReason(e.target.textContent)}>
+                        <option value="1">Wrong details</option>
+                        <option value="2">Item is discontinued</option>
+                        <option value="3">Other</option>
                     </select>
                 </span>
 
@@ -68,6 +82,6 @@ function RemoveItemRequest() {
             </form>
         </div>
     );
-    }
 
+}
 export default RemoveItemRequest;
