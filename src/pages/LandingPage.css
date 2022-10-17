@@ -145,10 +145,15 @@
 
 
 
-.getstartedbtn {
+.getstartedbtn-container {
   position: absolute;
-  top: 80%;
-  left: 39vw;
+  height: max-content;
+  top: 85%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  /* left: 39vw; */
+
 }
 
 .getstartbutton {
@@ -157,9 +162,10 @@
   border: black;
   color: black;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   padding: 20px;
-  width: 300px;
+  height: 60px;
+  width: 230px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -193,95 +199,43 @@
 }
 
 
-@media only screen and (max-width: 500px) {
-  /* For phone : */
-  .FoodToDo-landingpage-h1-container{
-    display: flex;
-    font-size: 0;
-    text-align: center;
-    margin-left: 0 !important;
-    margin-top: 5vw;
-    
-    height: 100px;
-    position: relative;
-    word-wrap: break-word;
-  }
 
-  .center-landingpage-items {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
+
+
+.FoodToDo-landingpage-h1-container{
+  font-size: 13vw;
+  font-weight: bolder;
+  font-family: 'Varela Round', sans-serif;
+  text-align: center;
+  margin-left: 0 !important;
+  margin-top: 50px;
   
-  .FoodToDo-landingpage-h1-1{
-    position: relative;
-    top: 30vw;
-    font-size: 100px;
-    font-weight: bolder;
-    font-family: 'Varela Round', sans-serif;
-    color: rgba(105, 173, 140);
-    display: inline-block;
-  }
-  
-  .FoodToDo-landingpage-h1-2{
-    position: relative;
-    bottom: -10vw;
-    font-size: 100px;
-    font-weight: bolder;
-    font-family: 'Varela Round', sans-serif;
-    color: rgba(192, 91, 84);
-  }
-  
-  .FoodToDo-landingpage-h1-3{
-    position: relative;
-    bottom: -10vw;
-    font-size: 100px;
-    font-weight: bolder;
-    font-family: 'Varela Round', sans-serif;
-    margin-top: 0;
-    color: rgba(234, 185, 74);
-  }
+  height: max-content;
+  position: relative;
+  word-wrap: break-word;
 }
 
-@media only screen and (min-width: 500px) {
-  /* For desktop : */ 
-  .FoodToDo-landingpage-h1-container{
-    font-size: 200px;
-    font-weight: bolder;
-    font-family: 'Varela Round', sans-serif;
-    text-align: center;
-    margin-left: 0 !important;
-    margin-top: 5vw;
-    
-    height: 100px;
-    position: relative;
-    word-wrap: break-word;
-  }
-
-  .center-landingpage-items {
-    margin: 0;
-    position: absolute;
-    bottom: 10vw;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-  
-  .FoodToDo-landingpage-h1-1{
-    color: rgba(105, 173, 140);
-    text-shadow: 10px 10px rgb(105,105,105,0.4);
-  }
-  
-  .FoodToDo-landingpage-h1-2{
-    color: rgba(192, 91, 84);
-    text-shadow: 10px 10px rgb(105,105,105,0.4);
-  }
-  
-  .FoodToDo-landingpage-h1-3{
-    color: rgba(234, 185, 74);
-    text-shadow: 10px 10px rgb(105,105,105,0.4);
-  }
+.center-landingpage-items {
+  /* margin: 0; */
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
+
+.FoodToDo-landingpage-h1-1{
+  color: rgba(105, 173, 140);
+  text-shadow: 10px 10px rgb(105,105,105,0.4);
+}
+
+.FoodToDo-landingpage-h1-2{
+  color: rgba(192, 91, 84);
+  text-shadow: 10px 10px rgb(105,105,105,0.4);
+}
+
+.FoodToDo-landingpage-h1-3{
+  color: rgba(234, 185, 74);
+  text-shadow: 10px 10px rgb(105,105,105,0.4);
+}
+

@@ -1,9 +1,45 @@
 import React from "react";
+import axios from "axios";
 import Navbar from "../components/navbar";
 import './navbar.css';
 import '../pages/AddItemPage.css';
+import { useState } from "react";
 
 function AddItemRequest() {
+
+    const [itemName, setItemName] = useState('');
+    const [itemURL, setItemURL] = useState('');
+    const [category, setCategory] = useState('');
+    const [reason, setReason] = useState('');
+
+    const onSubmit = (e) => {
+        if (!itemName) {
+            alert("Please insert a valid item name.");
+            return
+        } else {
+            e.preventDefault();
+            axios
+                .post('https://ftd-server.herokuapp.com/item/addItem', {
+                    itemName: itemName,
+                    itemURL: itemURL,
+                    category: category,
+                    reason: reason
+                })
+                .then((response) => {
+                    console.log(response.status);
+                    console.log(response.data);
+                    alert(`Add request success. Request to add: ${itemName}.`)
+                    setItemName('');
+                    setItemURL('');
+                    setCategory('');
+                    setReason('');
+                })
+                .catch((err) => {
+                    console.log(err);
+                    alert(`Something is wrong. Please try again later.`);
+                })
+        }
+    }
 
     return (
         <div>
@@ -15,13 +51,14 @@ function AddItemRequest() {
                         <a href="/removeitem">Remove Request</a>                    
                     </button>
                 </div>
-                <form action="add-request" method="POST" className="add-item-form">
+                <form className="add-item-form" onSubmit={onSubmit}>
                     <span className="add-item-form-fields">
                         <label for="item-name">
                             {/* <i className="material-symbols-outlined">item</i> */}
                             Item Name
                         </label>
-                        <input type="item-name" name="item-name" />
+                        <input type="item-name" name="item-name" value={itemName} 
+                        onChange={(e) => setItemName(e.target.value)} />
                     </span>
 
                     <span className="add-item-form-fields">
@@ -29,7 +66,8 @@ function AddItemRequest() {
                             {/* <i className="material-symbols-outlined">lock</i> */}
                             External URL
                         </label>
-                        <input type="external-url" name="external-url" />
+                        <input type="external-url" name="external-url" value={itemURL} 
+                        onChange={(e) => setItemURL(e.target.value)}/>
                     </span>
 
                     <span className="add-item-form-fields">
@@ -37,7 +75,7 @@ function AddItemRequest() {
                             {/* <i className="material-symbols-outlined">lock</i> */}
                             Product Category
                         </label>
-                        <select id="product-category" name="product-category">
+                        <select id="product-category" name="product-category" onChange={(e) => setCategory(e.target.textContent)}>
                             <option value="fresh-produce">Fresh Produce</option>
                             <option value="dairy">Dairy</option>
                             <option value="meat-and-poultry">Meat & Poultry</option>
@@ -51,9 +89,11 @@ function AddItemRequest() {
                             {/* <i className="material-symbols-outlined">lock</i> */}
                             Reason
                         </label>
-                        <select id="product-category" name="product-category">
-                            <option value="item-not-listed">Item not listed</option>
-                            <option value="other">Other</option>
+                        <select id="product-category" name="product-category" onChange={(e) => setReason(e.target.textContent)}>
+                            <option value="1">Item not listed</option>
+                            <option value="2">Different brand</option>
+                            <option value="3">Different size</option>
+                            <option value="4">Other</option>
                         </select>
                     </span>
                     

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom"
-import axios from "axios";
 import './index.css';
 
 import Layout from './pages/layout.jsx';
@@ -11,6 +10,9 @@ import Signup from "./pages/signup.jsx";
 import Dashboard from "./pages/dashboard.jsx";
 import AddItemPage from './pages/AddItemPage';
 import RemoveItemPage from './pages/RemoveItemPage';
+import AllItems from './pages/allItems';
+import TestItem from './pages/testItem';
+import NextShop from './pages/nextShop';
 
 export default function App() {
   return (
@@ -25,10 +27,10 @@ export default function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="additem" element={<AddItemPage />} />
           <Route path="removeitem" element={<RemoveItemPage />} />
+          <Route path="nextshop" element={<NextShop />} />
 
-          {/* for a 404 page
-          <Route path="*" element={<NoPage />} />
-          */}
+          <Route path="allitems" element={<AllItems />} />
+          <Route path="test-item" element={<TestItem />} />
 
         </Route>
       </Routes>

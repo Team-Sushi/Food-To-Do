@@ -2,7 +2,9 @@ import React from 'react'
 import {IoIosLogOut} from 'react-icons/io'
 import '../pages/dashboard-final.css'
 
-const DashboardCarouselHeader = ({ListName}) => {
+const DashboardCarouselHeader = ({ListName, ListArray}) => {
+
+  // const navigate = useNavigate();
 
   let hrefLink = '';
   if(ListName === 'Next Shopping List') {
