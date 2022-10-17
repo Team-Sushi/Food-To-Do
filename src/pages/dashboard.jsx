@@ -29,20 +29,20 @@ function Dashboard() {
     
 
     var shoppingListURL =
-    "https://ftd-server.herokuapp.com/item";
+    // "https://ftd-server.herokuapp.com/item";
+    "http://localhost:3012/item"
     var recentlyBoughtItemsURL =
     "https://ftd-server.herokuapp.com/item/recentlyBoughtItem";
     var favouritesURL =
     "https://ftd-server.herokuapp.com/item/favourites";
 
-    const [shoppingList, setShoppingList] = useState('')
-    const [recentlyBoughtItems, setRecentlyBoughtItems] = useState('');
-    const [favourites, setFavourites] = useState('');
+    const [shoppingList, setShoppingList] = useState([])
+    const [recentlyBoughtItems, setRecentlyBoughtItems] = useState([]);
+    const [favourites, setFavourites] = useState([]);
 
     axios
         .get(shoppingListURL, {withCredentials:true})
         .then((response) => {
-            console.log(response.data)
         setShoppingList(response.data)
         })
 
@@ -56,8 +56,7 @@ function Dashboard() {
         .get(favouritesURL, {withCredentials:true})
         .then((response) => {
         setFavourites(response.data)
-        })
-    
+        })    
 
     return (
         <div>
@@ -68,7 +67,7 @@ function Dashboard() {
                 
                 {shoppingList.length > 0 ? (
                     <div>
-                        <DashboardCarouselHeader ListName={'Next Shopping List'}/>
+                        <DashboardCarouselHeader ListName={'Next Shopping List'} ListArray={shoppingList}/>
                         <DashboardCarousel UserItems={shoppingList} ListName={'Next Shopping List'}/>
                     </div>
                 ) : <DashboardCarouselHeaderEmpty ListName={'Next Shopping List'}/>}

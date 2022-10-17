@@ -4,11 +4,11 @@ import React from 'react';
 import Navbar from '../components/navbar';
 import { Grid } from "@material-ui/core";
 import { IconButton } from '@mui/material';
-import Content from '../components/Content';
+import RecentlyPurContent from '../components/recentlyPurContent';
 import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 
-const NextShop = () => {
+const RecentlyPurchased = () => {
   return (
     <Grid container direction="column">
       <Grid item gutterBottom>
@@ -22,7 +22,7 @@ const NextShop = () => {
       
       <Grid item>
         <Typography variant='h3' component="h3" gutterBottom>
-          Next Shopping List
+          Recent Purchased
         </Typography>
       </Grid>
 
@@ -32,7 +32,7 @@ const NextShop = () => {
       <Grid item container>
         <Grid item xs={false} sm={2}/>
         <Grid item xs={12} sm={8}>
-          <Content />
+          <RecentlyPurContent />
         </Grid>
         <Grid item xs={false} sm={2} />
       </Grid>
@@ -46,4 +46,4 @@ const NextShop = () => {
   );
 };
 
-export default NextShop;
+export default RecentlyPurchased;
