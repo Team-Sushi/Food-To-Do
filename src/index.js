@@ -27,8 +27,7 @@ export default function App() {
           <Route index element={<LandingPage />} />
           <Route path="landingpage" element={<LandingPage />} />
           <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
-<<<<<<< HEAD
+          {/* <Route path="signup" element={<Signup />} /> */}
           <Route path="nextshoppinglist" element={<NextShop />} />
           <Route path="recentlypurchased" element={<RecentlyPurchased />} />
           <Route path="items" element={<AllItems />} />
@@ -56,11 +55,6 @@ export default function App() {
               </RequireAuth>
             }
           />
-=======
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="additem" element={<AddItemPage />} />
-          <Route path="removeitem" element={<RemoveItemPage />} />
->>>>>>> main
 
           {/* for a 404 page
           <Route path="*" element={<NoPage />} />
