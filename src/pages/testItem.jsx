@@ -3,7 +3,6 @@ import Navbar from '../components/navbar';
 import { Grid } from "@material-ui/core";
 import { IconButton } from '@mui/material';
 import TestContent from '../components/testContent';
-import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
@@ -17,13 +16,48 @@ import MaterialUIPickers from '../components/calendar';
 import { useState } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import axios from 'axios';
 
 
-const TestItem = () => {
+function TestItem ({favState, cartState, recentState}) {
+  
+  const allItemsURL = "http://localhost:3012/item";
+  const [items, setItems] = useState([]);
 
-  const [favourite, setFavourite] = useState(false)
-  const [cart, setCart] = useState(false)
-  const [recent, setRecent] = useState(false)
+  axios
+        .get(allItemsURL, {withCredentials:true})
+        .then((response) => {
+          setItems(response.data)
+        })
+
+//   function handleAdd(e) {
+//     e.preventDefault();
+//     axios
+//         .post('https://ftd-server.herokuapp.com/item/addItem', {
+//             itemID: itemID,
+//             quantity: 1,
+//             expiryType: "",
+//             expiryDate: Date,
+//         }, {
+//             withCredentials: true
+//         })
+//         .then((response) => {
+//           console.log(response.status);
+//           console.log(response.data);
+//           alert(`Remove request success. Request to remove: ${itemName}.`)
+//           setItemName('');
+//           setItemURL('');
+//           setReason('');
+//       })
+//       .catch((err) => {
+//           console.log(err);
+//           alert(`Something is wrong. Please try again later.`);
+//       })
+// }
+
+  const [favourite, setFavourite] = useState(favState)
+  const [cart, setCart] = useState(cartState)
+  const [recent, setRecent] = useState(recentState)
 
   return (
     <Grid container direction="column">
@@ -35,12 +69,6 @@ const TestItem = () => {
       <IconButton aria-label='skip-back' href='/dashboard'>
         <SkipPreviousIcon sx={{ fontSize: 50}}/>
       </IconButton>
-      
-      {/* <Grid item>
-        <Typography variant='h3' component="h3" gutterBottom>
-          Next Shopping List
-        </Typography>
-      </Grid> */}
 
     </Grid>
       
@@ -48,7 +76,7 @@ const TestItem = () => {
       <Grid item container>
         <Grid item xs={false} sm={1}/>
         <Grid item xs={12} sm={4} align="center">
-            <TestContent />
+            <TestContent item={items[0]}/>
               <IconButton aria-label='empty-heart' onClick={()=>setFavourite(!favourite)}>
 
                 {favourite ? <FavoriteIcon sx={{fontSize: 50}}/> : <FavoriteBorderIcon sx={{ fontSize: 50}}/>}
@@ -58,6 +86,7 @@ const TestItem = () => {
             <IconButton aria-label='add-cart' onClick={()=>setCart(!cart)}>
 
               {cart ? <RemoveShoppingCartIcon sx={{fontSize: 50}}/> : <AddShoppingCartIcon sx={{ fontSize: 50}}/>}
+
 
             </IconButton>
             <IconButton aria-label='recents' onClick={()=>setRecent(!recent)}>
@@ -94,8 +123,9 @@ const TestItem = () => {
                 label="Expiry Category"
                 // onChange={handleChange}
             >
-                <MenuItem value={10}>Use By</MenuItem>
-                <MenuItem value={20}>Best Before</MenuItem>
+                <MenuItem value={"Use by"}>Use By</MenuItem>
+                <MenuItem value={"Best before"}>Best Before</MenuItem>
+                <MenuItem value={"Not available"}>Not available</MenuItem>
             </Select>
             </FormControl>
             <MaterialUIPickers/>
@@ -111,5 +141,11 @@ const TestItem = () => {
     </Grid>
   );
 };
+
+TestItem.defaultProps = {
+  favState: false,
+  cartState: false,
+  recentState: false,
+}
 
 export default TestItem;

@@ -17,7 +17,7 @@ const DashboardCarouselHeader = ({ListName, ListArray}) => {
  
   return (
     <div className='dashboard-item-wheel-container'>
-        <a className='dashboard-item-wheel-title' href={hrefLink} >
+        <a className='dashboard-item-wheel-title' href={hrefLink}>
             <h1>
                 {ListName}
             </h1>

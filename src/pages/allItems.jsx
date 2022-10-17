@@ -2,13 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/navbar';
-import { Grid } from "@material-ui/core";
+// import { Grid } from "@material-ui/core";
+import {Grid} from '@mui/material';
 import { IconButton } from '@mui/material';
 import ItemContent from '../components/itemContent';
-import Typography from "@material-ui/core/Typography";
+import {Typography} from '@mui/material';
+// import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
-import { ConstructionOutlined } from '@mui/icons-material';
-import {Box} from '@material-ui/core';
 
 function AllItems() {
 
@@ -19,7 +19,10 @@ function AllItems() {
      }
   }
 
-  var allItemsURL = "http://localhost:3012/item"
+  var allItemsURL = 
+    "http://localhost:3012/item"
+    // "https://ftd-server.herokuapp.com/item";
+
   const [allItemList, setAllItemList] = useState([])
 
   axios

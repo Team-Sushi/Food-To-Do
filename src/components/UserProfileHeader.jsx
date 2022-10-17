@@ -1,12 +1,15 @@
 import React from "react";
 import {FiLogOut} from 'react-icons/fi';
 import DefaultUserImage from  '../components/defaultUserImage.png';
-import { AppBar, Avatar, Chip, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Avatar, Toolbar, Typography } from "@material-ui/core";
 import Box from '@mui/material/Box';
 import { makeStyles } from "@material-ui/styles";
 import Button from "@mui/material/Button";
 import { maxWidth } from "@mui/system";
 import axios from "axios";
+
+// import { AppBar, Avatar, Toolbar, Typography } from "@mui/material";
+// import { makeStyles } from "@mui/material/styles";
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
@@ -43,6 +46,11 @@ function onLogout(e) {
 
 const UserProfileHeader = ({ username, userPhotoLink }) => {
   const classes = useStyles();
+
+  if (username === '') {
+    username = "[username]"
+  }
+  
   return (
     <AppBar position="static" style={{background: "#FFE6DC", padding: "1vw 2vw"}}>
       <Toolbar>

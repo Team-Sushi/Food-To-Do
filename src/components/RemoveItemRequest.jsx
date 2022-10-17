@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import Navbar from "../components/navbar";
 import './navbar.css';
 import '../pages/AddItemPage.css';
@@ -57,7 +58,7 @@ function RemoveItemRequest() {
                 </span>
 
                 <span className="add-item-form-fields">
-                    <label for="itemURL">
+                    <label for="itemImageURL">
                         {/* <i className="material-symbols-outlined">person</i> */}
                         Item URL
                     </label>
