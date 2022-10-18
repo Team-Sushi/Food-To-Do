@@ -70,7 +70,7 @@ function TestItem ({favState, cartState, recentState}) {
       } else {
         axios
         .post('https://ftd-server.herokuapp.com/item/removeItem', {
-            itemID: items[1].item_id,
+            itemID: items[1]._id,
         }, {
             withCredentials: true
         })
@@ -80,6 +80,53 @@ function TestItem ({favState, cartState, recentState}) {
             alert(`Item added to shopping list: ${items[1].itemName}.`)
             setFavourite(favState);
             cartState = false;
+            setCart(cartState);
+            setRecent(recentState);
+        })
+        .catch((err) => {
+            console.log(err);
+            alert(`Something is wrong. Please try again later.`);
+        })
+      }
+  }
+
+  function handleClickFav(e) {
+    e.preventDefault();
+
+    if(favourite === false) {
+    axios
+    //https://ftd-server.herokuapp.com/item/addItem
+        .post('https://ftd-server.herokuapp.com/item/addFavorite', {
+            itemID: items[1]._id,
+        }, {
+            withCredentials: true
+        })
+        .then((response) => {
+            console.log(response.status);
+            console.log(response.data);
+            alert(`Item added to favourite list: ${items[1].itemName}.`)
+            favState = true;
+            setFavourite(favState);
+            setCart(cartState);
+            setRecent(recentState);
+        })
+        .catch((err) => {
+            console.log(err);
+            alert(`Something is wrong. Please try again later.`);
+        })
+      } else {
+        axios
+        .post('https://ftd-server.herokuapp.com/item/removeFavorite', {
+            itemID: items[1]._id,
+        }, {
+            withCredentials: true
+        })
+        .then((response) => {
+            console.log(response.status);
+            console.log(response.data);
+            alert(`Item removed from favourite list: ${items[1].itemName}.`)
+            favState = false;
+            setFavourite(favState);
             setCart(cartState);
             setRecent(recentState);
         })
@@ -113,7 +160,7 @@ function TestItem ({favState, cartState, recentState}) {
         <Grid item xs={12} sm={4} align="center">
             <TestContent item={items[1]}/>
             
-            <IconButton aria-label='empty-heart' onClick={()=>setFavourite(!favourite)}>
+            <IconButton aria-label='empty-heart' onClick={handleClickFav}>
 
               {favourite ? <FavoriteIcon sx={{fontSize: 50}}/> : <FavoriteBorderIcon sx={{ fontSize: 50}}/>}
               
