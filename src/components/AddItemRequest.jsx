@@ -19,7 +19,7 @@ function AddItemRequest() {
         } else {
             e.preventDefault();
             axios
-                .post('http://localhost:5000/item/requestAdd', {
+                .post('https://ftd-server.herokuapp.com/item/requestAdd', {
                     itemName: itemName,
                     itemURL: itemURL,
                     category: category,

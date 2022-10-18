@@ -34,7 +34,7 @@ export default function App() {
           <Route path="favourites" element={<Favorites />} />
           <Route path="allitems" element={<AllItems />} />
 
-          <Route path="test-item" element={<TestItem />} />
+          {/* <Route path="test-item" element={<TestItem />} /> */}
 
           <Route path="/item/:id" element={<TestItem />} />
 

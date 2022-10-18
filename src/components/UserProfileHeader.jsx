@@ -30,7 +30,7 @@ const useStyles = makeStyles(() => ({
 function onLogout(e) {
   e.preventDefault();
   axios
-      .post('http://localhost:5000/user/logout', {}, {
+      .post('https://ftd-server.herokuapp.com/user/logout', {}, {
           withCredentials: true
       })
       .then((response) => {

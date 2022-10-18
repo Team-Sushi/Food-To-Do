@@ -19,6 +19,7 @@ function LoginBox() {
         e.preventDefault();
         axios
         // https://ftd-server.herokuapp.com/user/login
+        // http://localhost:3012/user/login
             .post('https://ftd-server.herokuapp.com/user/login', {
                 email: email,
                 password: password

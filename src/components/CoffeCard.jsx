@@ -3,7 +3,7 @@ import React from "react";
 // import CardHeader from "@material-ui/core/CardHeader";
 // import {CardMedia } from "@material-ui/core";
 
-import {Card, CardHeader, CardMedia} from "@mui/material";
+import {Card, CardContent, Typography, CardMedia} from "@mui/material";
 import { makeStyles } from "@mui/material/styles";
 
 const CoffeCard = props => {
@@ -17,10 +17,14 @@ const CoffeCard = props => {
 
   return (
     <Card>
-      {/* <CardMedia style={{ height: "200px" }} image={imageUrl} /> */}
       <CardMedia style={myTheme.cardHeaderStylePref} image={itemImageURL} />
-      <CardHeader title={itemName} 
-        style={{ textAlign: 'center' }}/>
+      {/* <CardHeader title={item.itemName} variant="h8" noWrap
+        style={{ textAlign: 'center', fontSize: '100px'}}/> */}
+      <CardContent style={{backgroundColor: '#FFE6DC'}}>
+        <Typography gutterBottom noWrap variant="h6" component="div" style={{textAlign:'center'}}>
+          {itemName}
+        </Typography>
+      </CardContent>
     </Card>
   );
 };

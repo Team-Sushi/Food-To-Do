@@ -7,6 +7,7 @@ import { IconButton } from '@mui/material';
 import RecentlyPurContent from '../components/recentlyPurContent';
 import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import Content from '../components/Content';
 
 // import {Grid, Typography} from "@mui/material";
 
@@ -47,7 +48,7 @@ const RecentlyPurchased = () => {
       <Grid item container>
         <Grid item xs={false} sm={2}/>
         <Grid item xs={12} sm={8}>
-          <RecentlyPurContent recentlyPurchasedItems={recentlyBought}/>
+          <Content UserItemsList={recentlyBought}/>
         </Grid>
         <Grid item xs={false} sm={2} />
       </Grid>

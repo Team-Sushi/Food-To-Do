@@ -15,6 +15,13 @@ function NextShop() {
     // "http://localhost:3012/item/shoppingList";
 
     const [shoppingList, setShoppingList] = useState([]);
+
+    const [tempShopList, setTempShopList] = useState([
+      {_id: "634bfc05000bb67cef98bb4f",
+        itemName: "Banana Cavendish",
+      itemImageURL: "https://cdn0.woolworths.media/content/wowproductimages/large/133211.jpg"
+      }
+    ]);
   
     axios
         .get(shoppingListURL, {withCredentials:true})
@@ -43,11 +50,11 @@ function NextShop() {
       
       
       <Grid item container>
-        <Grid item xs={false} sm={2}/>
-        <Grid item xs={12} sm={8}>
-          <Content UserItemsList={shoppingList}/>
+        <Grid item xs={false} sm={1}/>
+        <Grid item xs={12} sm={10}>
+          <Content UserItemsList={shoppingList} setList={setTempShopList}/>
         </Grid>
-        <Grid item xs={false} sm={2} />
+        <Grid item xs={false} sm={1} />
       </Grid>
 
       {/* <Grid container direction='row' justifyContent='center' sx={{pt: 2}}>

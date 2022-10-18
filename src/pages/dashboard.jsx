@@ -19,6 +19,8 @@ function Dashboard() {
 
     useEffect(() => {
         async function useAuth() {
+            // https://ftd-server.herokuapp.com/user/protected
+            // http://localhost:3012/user/protected
           await axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
             if (res.data === false) {
               navigate("/login");

@@ -27,8 +27,8 @@ const TestContent = ({item}) => {
 };
 
 TestContent.defaultProps = {
-  itemname: "Banana Cavendish",
-  itemimageURL: "https://cdn0.woolworths.media/content/wowproductimages/large/133211.jpg",
+  itemname: "#Item Name",
+  itemimageURL: "./image-unavailable.png",
 }
 
 export default TestContent;

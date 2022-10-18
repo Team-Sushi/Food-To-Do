@@ -19,7 +19,7 @@ function Login() {
   const navigate = useNavigate();
     useEffect(() => {
         async function useAuth() {
-          await axios.get('http://localhost:5000/user/protected', { withCredentials: true }).then((res) => {
+          await axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
             if (res.data === true) {
               navigate("/dashboard");
             }

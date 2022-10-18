@@ -17,11 +17,14 @@ import { useState } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 
 function TestItem ({favState, cartState, recentState}) {
   
-  const allItemsURL = "https://foodtodo.herokuapp/item";
+  const allItemsURL = 
+    "https://ftd-server.herokuapp.com/item"
+    // "http://localhost:3012/item"
   const [items, setItems] = useState([]);
 
   axios
@@ -30,30 +33,62 @@ function TestItem ({favState, cartState, recentState}) {
           setItems(response.data)
         })
 
-//   function handleAdd(e) {
-//     e.preventDefault();
-//     axios
-//         .post('https://ftd-server.herokuapp.com/item/addItem', {
-//             itemID: itemID,
-//             quantity: 1,
-//             expiryType: "",
-//             expiryDate: Date,
-//         }, {
-//             withCredentials: true
-//         })
-//         .then((response) => {
-//           console.log(response.status);
-//           console.log(response.data);
-//           alert(`Remove request success. Request to remove: ${itemName}.`)
-//           setItemName('');
-//           setItemURL('');
-//           setReason('');
-//       })
-//       .catch((err) => {
-//           console.log(err);
-//           alert(`Something is wrong. Please try again later.`);
-//       })
-// }
+  const [date, setDate] = useState(dayjs(''))
+
+  const addDate = (date) => {
+    setDate(date)
+    console.log(date)
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+
+    if(cart === false) {
+    axios
+    //https://ftd-server.herokuapp.com/item/addItem
+        .post('https://ftd-server.herokuapp.com/item/addItem', {
+            itemID: items[1]._id,
+            quantity: 1,
+            expiryType: "Best before",
+            expiryDate: date,
+        }, {
+            withCredentials: true
+        })
+        .then((response) => {
+            console.log(response.status);
+            console.log(response.data);
+            alert(`Item added to shopping list: ${items[1].itemName}.`)
+            setFavourite(favState);
+            cartState = true;
+            setCart(cartState);
+            setRecent(recentState);
+        })
+        .catch((err) => {
+            console.log(err);
+            alert(`Something is wrong. Please try again later.`);
+        })
+      } else {
+        axios
+        .post('https://ftd-server.herokuapp.com/item/removeItem', {
+            itemID: items[1].item_id,
+        }, {
+            withCredentials: true
+        })
+        .then((response) => {
+            console.log(response.status);
+            console.log(response.data);
+            alert(`Item added to shopping list: ${items[1].itemName}.`)
+            setFavourite(favState);
+            cartState = false;
+            setCart(cartState);
+            setRecent(recentState);
+        })
+        .catch((err) => {
+            console.log(err);
+            alert(`Something is wrong. Please try again later.`);
+        })
+      }
+  }
 
   const [favourite, setFavourite] = useState(favState)
   const [cart, setCart] = useState(cartState)
@@ -76,19 +111,21 @@ function TestItem ({favState, cartState, recentState}) {
       <Grid item container>
         <Grid item xs={false} sm={1}/>
         <Grid item xs={12} sm={4} align="center">
-            <TestContent item={items[0]}/>
-              <IconButton aria-label='empty-heart' onClick={()=>setFavourite(!favourite)}>
-
-                {favourite ? <FavoriteIcon sx={{fontSize: 50}}/> : <FavoriteBorderIcon sx={{ fontSize: 50}}/>}
-                
-              </IconButton>
+            <TestContent item={items[1]}/>
             
-            <IconButton aria-label='add-cart' onClick={()=>setCart(!cart)}>
+            <IconButton aria-label='empty-heart' onClick={()=>setFavourite(!favourite)}>
+
+              {favourite ? <FavoriteIcon sx={{fontSize: 50}}/> : <FavoriteBorderIcon sx={{ fontSize: 50}}/>}
+              
+            </IconButton>
+            
+            <IconButton aria-label='add-cart' onClick={handleClick}>
 
               {cart ? <RemoveShoppingCartIcon sx={{fontSize: 50}}/> : <AddShoppingCartIcon sx={{ fontSize: 50}}/>}
 
 
             </IconButton>
+
             <IconButton aria-label='recents' onClick={()=>setRecent(!recent)}>
 
               {recent ? <HomeIcon sx={{fontSize: 50}}/> : <HomeOutlinedIcon sx={{ fontSize: 50}}/>}
@@ -128,7 +165,7 @@ function TestItem ({favState, cartState, recentState}) {
                 <MenuItem value={"Not available"}>Not available</MenuItem>
             </Select>
             </FormControl>
-            <MaterialUIPickers/>
+            <MaterialUIPickers onAdd={addDate}/>
 
             
         </Grid>

@@ -5,7 +5,9 @@ function nextShopItems() {
     const [shoppingList, setShoppingList] = useState('');
 
     axios
-        .get('https://ftd-server.herokuapp.com/item', 
+        // http://localhost:3012/item/shoppingList
+        // https://ftd-server.herokuapp.com/item/shoppingList
+        .get('https://ftd-server.herokuapp.com/item/shoppingList', 
         {withCredentials: true},
         )
 

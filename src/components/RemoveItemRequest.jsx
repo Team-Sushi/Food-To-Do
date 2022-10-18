@@ -18,7 +18,7 @@ function RemoveItemRequest() {
         } else {
             e.preventDefault();
             axios
-                .post('http://localhost:5000/item/requestRemove', {
+                .post('https://ftd-server.herokuapp.com/item/requestRemove', {
                     itemName: itemName,
                     itemURL: itemURL,
                     reason: reason

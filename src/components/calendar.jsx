@@ -6,11 +6,12 @@ import TextField from '@mui/material/TextField';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
-export default function MaterialUIPickers() {
-  const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
+export default function MaterialUIPickers({onAdd,date}) {
+  const [value, setValue] = React.useState(dayjs(date));
 
   const handleChange = (newValue) => {
     setValue(newValue);
+    onAdd(newValue);
   };
 
   return (
@@ -26,4 +27,8 @@ export default function MaterialUIPickers() {
         </Stack>
     </LocalizationProvider>
   );
+}
+
+MaterialUIPickers.defaultProps = {
+  date: '2022-10-18'
 }
