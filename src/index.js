@@ -15,6 +15,7 @@ import TestItem from './pages/testItem';
 import NextShop from './pages/nextShop';
 import RecentlyPurchased from './pages/recentlyPurchased';
 import Favorites from './pages/favorites';
+import Category from './pages/category';
 
 export default function App() {
   return (
