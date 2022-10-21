@@ -42,7 +42,7 @@ function ResponsiveDialog(){
         Update Password
       </Button> */}
       <IconButton onClick={handleClickOpen}>
-              <Avatar style={{backgroundColor: "#D3D3D3", height: 50, width: 50}} src={'./defaultUserImage.png'} alt='image not found' />
+        <Avatar style={{backgroundColor: "#D3D3D3", height: 50, width: 50}} src={DefaultUserImage} alt='image not found' />
 
       </IconButton>
       <Dialog
