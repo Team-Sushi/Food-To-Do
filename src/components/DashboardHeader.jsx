@@ -20,7 +20,7 @@ const DashboardHeader = () => {
         <div className='dashboard-category-container'>
 
           <div className='dashboard-category-image'>
-            <a href='./vegetables'>
+            <a href='./category'>
               <img src={Vegetables} alt=''/>
 
               <span className='dashboard-category-caption'>Fresh produce</span>
