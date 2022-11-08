@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/navbar';
@@ -20,16 +20,19 @@ function AllItems() {
   }
 
   var allItemsURL = 
-  // "http://localhost:3012/item"
-    "https://ftd-server.herokuapp.com/item"
+  "http://localhost:3012/item"
+    // "https://ftd-server.herokuapp.com/item"
 
   const [allItemList, setAllItemList] = useState([])
 
-  axios
+  useEffect(() => {
+    axios
         .get(allItemsURL, {withCredentials:true})
         .then((response) => {
           setAllItemList(response.data)
-        })
+        });
+  }, []);
+  
 
   return (
     <Grid container direction="column">

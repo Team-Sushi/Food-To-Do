@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../components/navbar';
 import { Grid } from "@material-ui/core";
 import { IconButton } from '@mui/material';
@@ -14,16 +14,19 @@ import Content from '../components/Content';
 const RecentlyPurchased = () => {
 
   var recentlyBoughtURL =
-  "https://ftd-server.herokuapp.com/item/recentlyBought";
-  // "http://localhost:3012/item/recentlyBought";
+  // "https://ftd-server.herokuapp.com/item/recentlyBought";
+  "http://localhost:3012/item/recentlyBought";
 
   const [recentlyBought, setRecentlyBought] = useState([]);
 
-  axios
+  useEffect(() => {
+    axios
       .get(recentlyBoughtURL, {withCredentials:true})
       .then((response) => {
       setRecentlyBought(response.data)
-      })
+      });
+  }, []);
+  
   
   return (
     <Grid container direction="column">

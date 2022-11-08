@@ -6,28 +6,24 @@ import Content from '../components/Content';
 import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function NextShop() {
 
   var shoppingListURL =
-    "https://ftd-server.herokuapp.com/item/shoppingList";
-    // "http://localhost:3012/item/shoppingList";
+    // "https://ftd-server.herokuapp.com/item/shoppingList";
+    "http://localhost:3012/item/shoppingList";
 
     const [shoppingList, setShoppingList] = useState([]);
-
-    const [tempShopList, setTempShopList] = useState([
-      {_id: "634bfc05000bb67cef98bb4f",
-        itemName: "Banana Cavendish",
-      itemImageURL: "https://cdn0.woolworths.media/content/wowproductimages/large/133211.jpg"
-      }
-    ]);
   
-    axios
+    useEffect(() => {
+      axios
         .get(shoppingListURL, {withCredentials:true})
         .then((response) => {
         setShoppingList(response.data)
-        })
+        });
+    }, []);
+    
 
   return (
     <Grid container direction="column">
@@ -52,7 +48,7 @@ function NextShop() {
       <Grid item container>
         <Grid item xs={false} sm={1}/>
         <Grid item xs={12} sm={10}>
-          <Content UserItemsList={shoppingList} setList={setTempShopList}/>
+          <Content UserItemsList={shoppingList} setList={setShoppingList}/>
         </Grid>
         <Grid item xs={false} sm={1} />
       </Grid>

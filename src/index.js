@@ -15,6 +15,7 @@ import TestItem from './pages/testItem';
 import NextShop from './pages/nextShop';
 import RecentlyPurchased from './pages/recentlyPurchased';
 import Favorites from './pages/favorites';
+import Category from './pages/category';
 
 export default function App() {
   return (
@@ -33,10 +34,11 @@ export default function App() {
           <Route path="recentlypurchased" element={<RecentlyPurchased />} />
           <Route path="favourites" element={<Favorites />} />
           <Route path="allitems" element={<AllItems />} />
+          <Route path="category/:category" element={<Category />} />
 
           {/* <Route path="test-item" element={<TestItem />} /> */}
 
-          <Route path="/item/:id" element={<TestItem />} />
+          <Route path="/item/:itemID" element={<TestItem />} />
 
         </Route>
       </Routes>

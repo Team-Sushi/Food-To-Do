@@ -20,7 +20,7 @@ const DashboardHeader = () => {
         <div className='dashboard-category-container'>
 
           <div className='dashboard-category-image'>
-            <a href='./vegetables'>
+            <a href='./category/freshproduce'>
               <img src={Vegetables} alt=''/>
 
               <span className='dashboard-category-caption'>Fresh produce</span>
@@ -28,7 +28,7 @@ const DashboardHeader = () => {
           </div>
 
           <div className='dashboard-category-image'>
-            <a href='./dairy'>
+            <a href='./category/dairy'>
               <img src={Dairy} alt=''/>
 
               <span className='dashboard-category-caption'>Dairy</span>
@@ -36,7 +36,7 @@ const DashboardHeader = () => {
           </div>
 
           <div className='dashboard-category-image'>
-            <a href='./meat&poultry'>
+            <a href='./category/meat&poultry'>
               <img src={Meat} alt=''/>
 
               <span className='dashboard-category-caption'>Meat & Poultry</span>
@@ -44,7 +44,7 @@ const DashboardHeader = () => {
           </div>
 
           <div className='dashboard-category-image'>
-            <a href='./pantry'>
+            <a href='./category/pantry'>
               <img src={Pantry} alt=''/>
 
               <span className='dashboard-category-caption'>Pantry</span>

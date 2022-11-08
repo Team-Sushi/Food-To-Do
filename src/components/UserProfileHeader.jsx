@@ -7,9 +7,74 @@ import { makeStyles } from "@material-ui/styles";
 import Button from "@mui/material/Button";
 import { maxWidth } from "@mui/system";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
+// import ResponsiveDialog from './UserProfile';
 // import { AppBar, Avatar, Toolbar, Typography } from "@mui/material";
 // import { makeStyles } from "@mui/material/styles";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import PasswordForm from './PasswordEntry';
+import { IconButton } from "@mui/material";
+
+function ResponsiveDialog(){
+  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const handleClickOpen = () => {
+    /* update this to send changed password to database*/
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    /* update this to cancel changes*/
+    setOpen(false);
+  };
+
+  return (
+    <div>
+      {/* <Button variant="outlined" onClick={handleClickOpen}>
+        Update Password
+      </Button> */}
+      <IconButton onClick={handleClickOpen}>
+        <Avatar style={{backgroundColor: "#D3D3D3", height: 50, width: 50}} src={DefaultUserImage} alt='image not found' />
+
+      </IconButton>
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">
+          {"Update your password"}
+        </DialogTitle>
+        <DialogContent>
+          {/* <DialogContentText>
+            Let Google help apps determine location. This means sending anonymous
+            location data to Google, even when no apps are running.
+          </DialogContentText> */}
+          <PasswordForm />
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button onClick={handleClose} autoFocus>
+            Submit
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+  );
+}
+
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
@@ -27,28 +92,47 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-function onLogout(e) {
-  e.preventDefault();
-  axios
-      .post('https://ftd-server.herokuapp.com/user/logout', {}, {
-          withCredentials: true
-      })
-      .then((response) => {
-          if (response) {
-              console.log(response);
-              alert(`You've logged out successfully!`);
-          }
-      })
-      .catch((err) => {
-          console.log(err);
-      })
-}
 
-const UserProfileHeader = ({ username, userPhotoLink }) => {
+function UserProfileHeader({ username, userPhotoLink }) {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const handleClickOpen = () => {
+    /* update this to send changed password to database*/
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    /* update this to cancel changes*/
+    setOpen(false);
+  };
 
   if (username === '') {
     username = "[username]"
+  }
+
+  const navigate = useNavigate();
+
+  function onLogout(e) {
+    e.preventDefault();
+    // http://localhost:3012/user/logout
+    // https://ftd-server.herokuapp.com/user/logout
+    axios
+        .post('http://localhost:3012/user/logout', {}, {
+            withCredentials: true
+        })
+        .then((response) => {
+            if (response) {
+                console.log(response);
+                alert(`You've logged out successfully!`);
+                navigate('/');
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
   }
   
   return (
@@ -62,8 +146,15 @@ const UserProfileHeader = ({ username, userPhotoLink }) => {
                 avatar=<Avatar style={{backgroundColor: "#D3D3D3", height: 50, width: 50, cursor: 'pointer'}} src={userPhotoLink} alt='image not found'/>
                 label="Jason Nicholas Susanto"
             /> */}
+            {/* <IconButton onClick={handleClickOpen}>
+              <Avatar style={{backgroundColor: "#D3D3D3", height: 50, width: 50}} src={userPhotoLink} alt='image not found' />
 
-            <Avatar style={{backgroundColor: "#D3D3D3", height: 50, width: 50, cursor: 'pointer'}} src={userPhotoLink} alt='image not found'/>
+            </IconButton> */}
+            <ResponsiveDialog
+              open={open}
+              onClose={handleClose}
+              />
+
         </Box>
         <Typography className={classes.typographyStyles} style={{fontSize: '1.1rem', color: 'black'}}>
             Welcome back, {username}!
