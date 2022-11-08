@@ -9,8 +9,22 @@ import ItemContent from '../components/itemContent';
 import {Typography} from '@mui/material';
 // import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import { useNavigate } from "react-router-dom";
 
 function AllItems() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    async function useAuth() {
+        // https://ftd-server.herokuapp.com/user/protected
+        // http://localhost:3012/user/protected
+      await axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
+        if (res.data === false) {
+          navigate("/login");
+        }
+      })  
+    }
+    useAuth();
+  }, []);
 
   const myTheme = {
     cardHeaderStylePref:{
@@ -20,8 +34,8 @@ function AllItems() {
   }
 
   var allItemsURL = 
-  "http://localhost:3012/item"
-    // "https://ftd-server.herokuapp.com/item"
+  // "http://localhost:3012/item"
+    "https://ftd-server.herokuapp.com/item"
 
   const [allItemList, setAllItemList] = useState([])
 

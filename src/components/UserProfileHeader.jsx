@@ -120,7 +120,7 @@ function UserProfileHeader({ username, userPhotoLink }) {
     // http://localhost:3012/user/logout
     // https://ftd-server.herokuapp.com/user/logout
     axios
-        .post('http://localhost:3012/user/logout', {}, {
+        .post('https://ftd-server.herokuapp.com/user/logout', {}, {
             withCredentials: true
         })
         .then((response) => {

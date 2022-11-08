@@ -8,8 +8,24 @@ import ItemContent from '../components/itemContent';
 import {Typography} from '@mui/material';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Category() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function useAuth() {
+        // https://ftd-server.herokuapp.com/user/protected
+        // http://localhost:3012/user/protected
+      await axios.get('https://ftd-server.herokuapp.com/user/protected', { withCredentials: true }).then((res) => {
+        if (res.data === false) {
+          navigate("/login");
+        }
+      })  
+    }
+    useAuth();
+  }, []);
 
   const myTheme = {
     cardHeaderStylePref:{
@@ -22,8 +38,7 @@ function Category() {
 
   // "http://localhost:3012/item/category/"
   // "https://ftd-server.herokuapp.com/item/category/"
-  var categoryURL = 
-    "http://localhost:3012/item/category/";
+  var categoryURL = "https://ftd-server.herokuapp.com/item/category/";
 
   categoryURL = categoryURL.concat(category);
 
@@ -36,7 +51,7 @@ function Category() {
         })
 
   // Change category strings to proper form
-  
+
   if (category === 'freshproduce') {
     category = "Fresh Produce"
   } else if (category === 'meat&poutry') {

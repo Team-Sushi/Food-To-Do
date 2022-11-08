@@ -14,8 +14,8 @@ import Content from '../components/Content';
 const RecentlyPurchased = () => {
 
   var recentlyBoughtURL =
-  // "https://ftd-server.herokuapp.com/item/recentlyBought";
-  "http://localhost:3012/item/recentlyBought";
+  "https://ftd-server.herokuapp.com/item/recentlyBought";
+  // "http://localhost:3012/item/recentlyBought";
 
   const [recentlyBought, setRecentlyBought] = useState([]);
 

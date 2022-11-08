@@ -7,7 +7,7 @@ function nextShopItems() {
     axios
         // http://localhost:3012/item/shoppingList
         // https://ftd-server.herokuapp.com/item/shoppingList
-        .get('http://localhost:3012/item/shoppingList', 
+        .get('https://ftd-server.herokuapp.com/item/shoppingList', 
         {withCredentials: true},
         )
 

@@ -28,16 +28,16 @@ function TestItem ({favState, cartState, recentState}) {
   const { itemID } = useParams();
 
   const getOneItemURL =
-    `http://localhost:3012/item/getOneItem/${itemID}`
-    // `https://ftd-server.herokuapp.com/item/getOneItem/${itemID}`
+    // `http://localhost:3012/item/getOneItem/${itemID}`
+    `https://ftd-server.herokuapp.com/item/getOneItem/${itemID}`
 
   const checkFavURL =
-  `http://localhost:3012/item/checkFav/${itemID}`
-  // `https://ftd-server.herokuapp.com/item/checkFav/:itemID`
+  //`http://localhost:3012/item/checkFav/${itemID}`
+   `https://ftd-server.herokuapp.com/item/checkFav/${itemID}`
 
   const checkCartURL =
-  `http://localhost:3012/item/inCart/${itemID}`
-  // `https://ftd-server.herokuapp.com/item/inCart/:itemID`
+  //`http://localhost:3012/item/inCart/${itemID}`
+  `https://ftd-server.herokuapp.com/item/inCart/${itemID}`
 
   const [item, setItem] = useState({});
   const [favourite, setFavourite] = useState(favState)
@@ -82,7 +82,7 @@ function TestItem ({favState, cartState, recentState}) {
       axios
       //https://ftd-server.herokuapp.com/item/addItem
       //http://localhost:3012/item/addItem
-        .post('http://localhost:3012/item/addItem', {
+        .post('https://ftd-server.herokuapp.com/item/addItem', {
             itemID: item._id,
             quantity: 1,
             expiryType: expiryCategory,
@@ -105,7 +105,7 @@ function TestItem ({favState, cartState, recentState}) {
         //https://ftd-server.herokuapp.com/item/removeItem
         //http://localhost:3012/item/removeItem
         axios
-        .post('http://localhost:3012/item/removeItem', {
+        .post('https://ftd-server.herokuapp.com/item/removeItem', {
             itemID: item._id,
         }, {
             withCredentials: true
@@ -131,7 +131,7 @@ function TestItem ({favState, cartState, recentState}) {
     axios
     // https://ftd-server.herokuapp.com/item/addFavorite
     // http://localhost:3012/item/addFavorite
-        .post('http://localhost:3012/item/addFavorite', {
+        .post('https://ftd-server.herokuapp.com/item/addFavorite', {
             itemID: item._id,
         }, {
             withCredentials: true
@@ -151,7 +151,7 @@ function TestItem ({favState, cartState, recentState}) {
         axios
         //https://ftd-server.herokuapp.com/item/removeFavorite
         //http://localhost:3012/item/removeFavorite
-        .post('http://localhost:3012/item/removeFavorite', {
+        .post('https://ftd-server.herokuapp.com/item/removeFavorite', {
             itemID: item._id,
         }, {
             withCredentials: true
