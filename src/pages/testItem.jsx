@@ -26,16 +26,46 @@ function TestItem ({favState, cartState, recentState}) {
 
   // Get one item from the database based on the item ID in the URL params, only called when the page is first loaded.
   const { itemID } = useParams();
+
   const getOneItemURL =
     `http://localhost:3012/item/getOneItem/${itemID}`
+    // `https://ftd-server.herokuapp.com/item/getOneItem/${itemID}`
+
+  const checkFavURL =
+  `http://localhost:3012/item/checkFav/${itemID}`
+  // `https://ftd-server.herokuapp.com/item/checkFav/:itemID`
+
+  const checkCartURL =
+  `http://localhost:3012/item/inCart/${itemID}`
+  // `https://ftd-server.herokuapp.com/item/inCart/:itemID`
+
   const [item, setItem] = useState({});
+  const [favourite, setFavourite] = useState(favState)
+  const [cart, setCart] = useState(cartState)
+  const [recent, setRecent] = useState(recentState)
+
   useEffect(() => {
     axios
           .get(getOneItemURL, { withCredentials:true })
           .then((response) => {
             setItem(response.data);
           });
+
+    axios
+    .get(checkFavURL, { withCredentials:true })
+    .then((response) => {
+      setFavourite(response.data);
+    });
+
+    axios
+    .get(checkCartURL, { withCredentials:true })
+    .then((response) => {
+      setCart(response.data);
+    });
+    
   }, []);
+
+
 
   const [expiryCategory, setExpiryCategory] = useState('Use by')
   const [date, setDate] = useState(dayjs())
@@ -64,18 +94,18 @@ function TestItem ({favState, cartState, recentState}) {
             console.log(response.status);
             console.log(response.data);
             alert(`Item added to shopping list: ${item.itemName}.`)
-            setFavourite(favState);
             cartState = true;
             setCart(cartState);
-            setRecent(recentState);
         })
         .catch((err) => {
             console.log(err);
             alert(`Something is wrong. Please try again later.`);
         })
     } else {
+        //https://ftd-server.herokuapp.com/item/removeItem
+        //http://localhost:3012/item/removeItem
         axios
-        .post('https://ftd-server.herokuapp.com/item/removeItem', {
+        .post('http://localhost:3012/item/removeItem', {
             itemID: item._id,
         }, {
             withCredentials: true
@@ -83,11 +113,9 @@ function TestItem ({favState, cartState, recentState}) {
         .then((response) => {
             console.log(response.status);
             console.log(response.data);
-            alert(`Item added to shopping list: ${item.itemName}.`)
-            setFavourite(favState);
+            alert(`Item removed from shopping list: ${item.itemName}.`)
             cartState = false;
             setCart(cartState);
-            setRecent(recentState);
         })
         .catch((err) => {
             console.log(err);
@@ -114,8 +142,6 @@ function TestItem ({favState, cartState, recentState}) {
             alert(`Item added to favourite list: ${item.itemName}.`)
             favState = true;
             setFavourite(favState);
-            setCart(cartState);
-            setRecent(recentState);
         })
         .catch((err) => {
             console.log(err);
@@ -123,7 +149,9 @@ function TestItem ({favState, cartState, recentState}) {
         })
       } else {
         axios
-        .post('https://ftd-server.herokuapp.com/item/removeFavorite', {
+        //https://ftd-server.herokuapp.com/item/removeFavorite
+        //http://localhost:3012/item/removeFavorite
+        .post('http://localhost:3012/item/removeFavorite', {
             itemID: item._id,
         }, {
             withCredentials: true
@@ -134,8 +162,6 @@ function TestItem ({favState, cartState, recentState}) {
             alert(`Item removed from favourite list: ${item.itemName}.`)
             favState = false;
             setFavourite(favState);
-            setCart(cartState);
-            setRecent(recentState);
         })
         .catch((err) => {
             console.log(err);
@@ -144,9 +170,7 @@ function TestItem ({favState, cartState, recentState}) {
       }
   }
 
-  const [favourite, setFavourite] = useState(favState)
-  const [cart, setCart] = useState(cartState)
-  const [recent, setRecent] = useState(recentState)
+
 
   return (
     <Grid container direction="column">

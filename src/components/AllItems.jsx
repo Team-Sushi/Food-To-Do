@@ -7,7 +7,7 @@ function GetAllItems() {
     axios
     // http://localhost:3012/item
     // https://ftd-server.herokuapp.com/item
-        .get('https://ftd-server.herokuapp.com/item', 
+        .get('http://localhost:3012/item', 
         {withCredentials: true},
         )
 

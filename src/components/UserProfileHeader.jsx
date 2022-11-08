@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/styles";
 import Button from "@mui/material/Button";
 import { maxWidth } from "@mui/system";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // import ResponsiveDialog from './UserProfile';
 // import { AppBar, Avatar, Toolbar, Typography } from "@mui/material";
@@ -91,24 +92,8 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-function onLogout(e) {
-  e.preventDefault();
-  axios
-      .post('https://ftd-server.herokuapp.com/user/logout', {}, {
-          withCredentials: true
-      })
-      .then((response) => {
-          if (response) {
-              console.log(response);
-              alert(`You've logged out successfully!`);
-          }
-      })
-      .catch((err) => {
-          console.log(err);
-      })
-}
 
-const UserProfileHeader = ({ username, userPhotoLink }) => {
+function UserProfileHeader({ username, userPhotoLink }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
@@ -126,6 +111,28 @@ const UserProfileHeader = ({ username, userPhotoLink }) => {
 
   if (username === '') {
     username = "[username]"
+  }
+
+  const navigate = useNavigate();
+
+  function onLogout(e) {
+    e.preventDefault();
+    // http://localhost:3012/user/logout
+    // https://ftd-server.herokuapp.com/user/logout
+    axios
+        .post('http://localhost:3012/user/logout', {}, {
+            withCredentials: true
+        })
+        .then((response) => {
+            if (response) {
+                console.log(response);
+                alert(`You've logged out successfully!`);
+                navigate('/');
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        })
   }
   
   return (
