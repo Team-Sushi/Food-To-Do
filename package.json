@@ -2,6 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -32,9 +35,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm install --save --legacy-peer-deps @material-ui/core &&node app.js",
-    "develop": "npm install --save --legacy-peer-deps @material-ui/core &&react-scripts start",
-    "build": "npm install --save --legacy-peer-deps @material-ui/core &&react-scripts build",
+    "start": "npm install --save --legacy-peer-deps @material-ui/core && SET NODE_OPTIONS=--openssl-legacy-provider && node app.js",
+    "develop": "npm install --save --legacy-peer-deps @material-ui/core && react-scripts start",
+    "build": "npm install --save --legacy-peer-deps @material-ui/core && SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "preinstall": "npx npm-force-resolutions"
