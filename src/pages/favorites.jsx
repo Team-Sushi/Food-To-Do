@@ -6,21 +6,24 @@ import Content from '../components/Content';
 import Typography from "@material-ui/core/Typography";
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Favorites() {
 
   var favoritesURL =
-    "https://ftd-server.herokuapp.com/item/favorites";
-    // "http://localhost:3012/item/shoppingList";
+    // "https://ftd-server.herokuapp.com/item/favorites";
+    "http://localhost:3012/item/favorites";
 
     const [favorites, setFavorites] = useState([]);
   
-    axios
+    useEffect(() => {
+      axios
         .get(favoritesURL, {withCredentials:true})
         .then((response) => {
         setFavorites(response.data)
-        })
+        });
+    }, []);
+    
 
   return (
     <Grid container direction="column">

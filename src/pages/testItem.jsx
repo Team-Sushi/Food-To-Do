@@ -18,22 +18,27 @@ import HomeIcon from '@mui/icons-material/Home';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import axios from 'axios';
 import dayjs from 'dayjs';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 function TestItem ({favState, cartState, recentState}) {
-  
-  const allItemsURL = 
-    "https://ftd-server.herokuapp.com/item"
-    // "http://localhost:3012/item"
-  const [items, setItems] = useState([]);
 
-  axios
-        .get(allItemsURL, {withCredentials:true})
-        .then((response) => {
-          setItems(response.data)
-        })
+  // Get one item from the database based on the item ID in the URL params, only called when the page is first loaded.
+  const { itemID } = useParams();
+  const getOneItemURL =
+    `http://localhost:3012/item/getOneItem/${itemID}`
+  const [item, setItem] = useState({});
+  useEffect(() => {
+    axios
+          .get(getOneItemURL, { withCredentials:true })
+          .then((response) => {
+            setItem(response.data);
+          });
+  }, []);
 
-  const [date, setDate] = useState(dayjs(''))
+  const [expiryCategory, setExpiryCategory] = useState('Use by')
+  const [date, setDate] = useState(dayjs())
 
   const addDate = (date) => {
     setDate(date)
@@ -43,13 +48,14 @@ function TestItem ({favState, cartState, recentState}) {
   function handleClick(e) {
     e.preventDefault();
 
-    if(cart === false) {
-    axios
-    //https://ftd-server.herokuapp.com/item/addItem
-        .post('https://ftd-server.herokuapp.com/item/addItem', {
-            itemID: items[1]._id,
+    if (cart === false) {
+      axios
+      //https://ftd-server.herokuapp.com/item/addItem
+      //http://localhost:3012/item/addItem
+        .post('http://localhost:3012/item/addItem', {
+            itemID: item._id,
             quantity: 1,
-            expiryType: "Best before",
+            expiryType: expiryCategory,
             expiryDate: date,
         }, {
             withCredentials: true
@@ -57,7 +63,7 @@ function TestItem ({favState, cartState, recentState}) {
         .then((response) => {
             console.log(response.status);
             console.log(response.data);
-            alert(`Item added to shopping list: ${items[1].itemName}.`)
+            alert(`Item added to shopping list: ${item.itemName}.`)
             setFavourite(favState);
             cartState = true;
             setCart(cartState);
@@ -67,17 +73,17 @@ function TestItem ({favState, cartState, recentState}) {
             console.log(err);
             alert(`Something is wrong. Please try again later.`);
         })
-      } else {
+    } else {
         axios
         .post('https://ftd-server.herokuapp.com/item/removeItem', {
-            itemID: items[1]._id,
+            itemID: item._id,
         }, {
             withCredentials: true
         })
         .then((response) => {
             console.log(response.status);
             console.log(response.data);
-            alert(`Item added to shopping list: ${items[1].itemName}.`)
+            alert(`Item added to shopping list: ${item.itemName}.`)
             setFavourite(favState);
             cartState = false;
             setCart(cartState);
@@ -95,16 +101,17 @@ function TestItem ({favState, cartState, recentState}) {
 
     if(favourite === false) {
     axios
-    //https://ftd-server.herokuapp.com/item/addItem
-        .post('https://ftd-server.herokuapp.com/item/addFavorite', {
-            itemID: items[1]._id,
+    // https://ftd-server.herokuapp.com/item/addFavorite
+    // http://localhost:3012/item/addFavorite
+        .post('http://localhost:3012/item/addFavorite', {
+            itemID: item._id,
         }, {
             withCredentials: true
         })
         .then((response) => {
             console.log(response.status);
             console.log(response.data);
-            alert(`Item added to favourite list: ${items[1].itemName}.`)
+            alert(`Item added to favourite list: ${item.itemName}.`)
             favState = true;
             setFavourite(favState);
             setCart(cartState);
@@ -117,14 +124,14 @@ function TestItem ({favState, cartState, recentState}) {
       } else {
         axios
         .post('https://ftd-server.herokuapp.com/item/removeFavorite', {
-            itemID: items[1]._id,
+            itemID: item._id,
         }, {
             withCredentials: true
         })
         .then((response) => {
             console.log(response.status);
             console.log(response.data);
-            alert(`Item removed from favourite list: ${items[1].itemName}.`)
+            alert(`Item removed from favourite list: ${item.itemName}.`)
             favState = false;
             setFavourite(favState);
             setCart(cartState);
@@ -158,7 +165,7 @@ function TestItem ({favState, cartState, recentState}) {
       <Grid item container>
         <Grid item xs={false} sm={1}/>
         <Grid item xs={12} sm={4} align="center">
-            <TestContent item={items[1]}/>
+            <TestContent item={item}/>
             
             <IconButton aria-label='empty-heart' onClick={handleClickFav}>
 
@@ -181,23 +188,7 @@ function TestItem ({favState, cartState, recentState}) {
         </Grid>
         <Grid item xs={false} sm={1}/>
         <Grid item xs={12} sm={5} align='right'>
-          <FormControl fullWidth sx={{ pb: 8}}>
-            <InputLabel id="demo-simple-select-label2" size='small'>Item Category</InputLabel>
-            <Select
-                labelId="demo-simple-select-label2"
-                id="demo-simple-select2"
-                // value={age}
-                label="Item Category"
-                // onChange={handleChange}
-            >
-                <MenuItem value={10}>Fresh Produce</MenuItem>
-                <MenuItem value={20}>Dairy</MenuItem>
-                <MenuItem value={30}>Meat</MenuItem>
-                <MenuItem value={40}>Pantry</MenuItem>
-            </Select>
-            </FormControl>
-
-
+        
             <FormControl fullWidth sx={{ pb: 8}}>
             <InputLabel id="demo-simple-select-label" size='small'>Expiry Category</InputLabel>
             <Select
@@ -205,7 +196,7 @@ function TestItem ({favState, cartState, recentState}) {
                 id="demo-simple-select"
                 // value={age}
                 label="Expiry Category"
-                // onChange={handleChange}
+                onChange={(e) => setExpiryCategory(e.target.value)}
             >
                 <MenuItem value={"Use by"}>Use By</MenuItem>
                 <MenuItem value={"Best before"}>Best Before</MenuItem>

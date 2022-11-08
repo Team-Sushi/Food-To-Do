@@ -30,5 +30,5 @@ export default function MaterialUIPickers({onAdd,date}) {
 }
 
 MaterialUIPickers.defaultProps = {
-  date: '2022-10-18'
+  date: dayjs()
 }

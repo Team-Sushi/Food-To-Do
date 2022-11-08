@@ -38,7 +38,7 @@ export default function App() {
 
           {/* <Route path="test-item" element={<TestItem />} /> */}
 
-          <Route path="/item/:id" element={<TestItem />} />
+          <Route path="/item/:itemID" element={<TestItem />} />
 
         </Route>
       </Routes>
